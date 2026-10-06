@@ -1,363 +1,246 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tapetarija – presvlačenje auto sjedišta i namještaja | 40 godina iskustva</title>
-  <meta name="description" content="Presvlačenje kožnih i platnenih auto sjedišta, volana, ručica mjenjača, sjedišta za motore, glisere i brodove. Presvlačenje namještaja, ugostiteljskih objekata i ljetnih bašti. 40 godina iskustva.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #faf7f2;
-      --surface: #ffffff;
-      --text: #2a211b;
-      --muted: #6b5d52;
-      --leather: #7a4a2a;
-      --leather-dark: #4a2c18;
-      --gold: #c79a4b;
-      --border: #e6ddd2;
-      --radius: 14px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.2; }
-    a { color: inherit; }
-    .container { width: min(1120px, 100% - 32px); margin-inline: auto; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- TODO: upisati pravi naziv radnje u naslov, opis i na mjesta gdje piše [Naziv] -->
+<title>Tapetarija [Naziv] – presvlačenje auto sjedišta i namještaja | 40 godina iskustva</title>
+<meta name="description" content="Presvlačenje kožnih i platnenih auto sjedišta, volana, ručica mjenjača, sjedišta za motore, glisere i brodove. Presvlačenje namještaja, ugostiteljskih objekata, ljetnih bašti i namještaja u firmama. 40 godina iskustva.">
+<meta name="theme-color" content="#141210">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="bs_BA">
+<meta property="og:title" content="Tapetarija [Naziv] – 40 godina iskustva">
+<meta property="og:description" content="Presvlačenje auto sjedišta, motora, glisera i brodova, namještaja, ugostiteljskih objekata i ljetnih bašti.">
+<!-- TODO: nakon objave stranice upisati punu adresu slike, npr. https://vasa-stranica.ba/images/hero-auto-koza.jpg -->
+<meta property="og:image" content="images/hero-auto-koza.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141210'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' text-anchor='middle' fill='%23c8935a'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="images/hero-auto-koza.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#141210;--surface:#1d1a17;--line:#2f2a25;--text:#f3ede6;--muted:#a89f94;--accent:#c8935a;--header:72px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:var(--header)}
+  body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6}
+  h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400;line-height:1.1}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  img{display:block;max-width:100%}
+  .wrap{width:min(1240px,100% - 32px);margin-inline:auto}
 
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(42, 33, 27, 0.95);
-      backdrop-filter: blur(6px);
-      color: #fff;
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .logo { font-family: "Playfair Display", serif; font-size: 1.35rem; text-decoration: none; }
-    .logo span { color: var(--gold); }
-    .nav ul { display: flex; gap: 28px; list-style: none; }
-    .nav ul a { text-decoration: none; font-size: .95rem; opacity: .85; }
-    .nav ul a:hover { opacity: 1; color: var(--gold); }
-    .nav .call { background: var(--gold); color: var(--leather-dark); padding: 8px 16px; border-radius: 999px; font-weight: 600; text-decoration: none; }
-    .menu-btn { display: none; background: none; border: 0; color: #fff; font-size: 1.6rem; cursor: pointer; }
+  /* Zaglavlje – prozirno na vrhu, tamno kad se skrola */
+  header{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,box-shadow .3s}
+  header.scrolled,header.open{background:rgba(20,18,16,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
+  nav{display:flex;align-items:center;gap:20px;height:84px;transition:height .3s}
+  header.scrolled nav{height:var(--header)}
+  .logo{font-family:"DM Serif Display";font-size:1.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .logo span{color:var(--accent)}
+  .menu{display:flex;gap:30px;list-style:none;font-size:.95rem;margin-left:auto}
+  .menu a{opacity:.85}.menu a:hover{opacity:1;color:var(--accent)}
+  .tel{background:var(--accent);color:#1a1209;padding:10px 20px;border-radius:999px;font-weight:700;white-space:nowrap}
+  .burger{display:none;background:none;border:0;color:var(--text);width:44px;height:44px;cursor:pointer;flex:none}
+  .burger svg{width:26px;height:26px}
+  .burger .i-close,header.open .burger .i-open{display:none}
+  header.open .burger .i-close{display:block}
 
-    /* Hero */
-    .hero {
-      color: #fff;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(199,154,75,.25), transparent 50%),
-        repeating-linear-gradient(45deg, rgba(255,255,255,.025) 0 2px, transparent 2px 6px),
-        linear-gradient(135deg, var(--leather-dark), var(--leather));
-      padding: 110px 0 120px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: ""; position: absolute; inset: 18px;
-      border: 2px dashed rgba(199,154,75,.35); border-radius: 22px; pointer-events: none;
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-      padding: 6px 14px; border-radius: 999px; font-size: .9rem; margin-bottom: 22px;
-    }
-    .badge b { color: var(--gold); font-size: 1.05rem; }
-    .hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); max-width: 780px; margin-bottom: 20px; }
-    .hero h1 em { color: var(--gold); font-style: normal; }
-    .hero p { font-size: 1.15rem; max-width: 620px; opacity: .9; margin-bottom: 34px; }
-    .btns { display: flex; flex-wrap: wrap; gap: 14px; }
-    .btn {
-      display: inline-block; padding: 14px 26px; border-radius: 999px;
-      font-weight: 600; text-decoration: none; transition: transform .15s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--gold); color: var(--leather-dark); }
-    .btn-outline { border: 2px solid rgba(255,255,255,.6); color: #fff; }
+  /* Naslovni dio */
+  .hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;position:relative;padding:0;
+    background:linear-gradient(90deg,rgba(20,18,16,.95) 0%,rgba(20,18,16,.75) 45%,rgba(20,18,16,.15) 100%),url(images/hero-auto-koza.jpg) center/cover}
+  .hero .wrap{padding-top:84px}
+  .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;font-weight:700}
+  .hero h1{font-size:clamp(2.6rem,6vw,5rem);max-width:720px;margin:18px 0 22px}
+  .hero h1 em{color:var(--accent)}
+  .hero p{max-width:540px;color:#d6cec4;font-size:1.12rem}
+  .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+  .btn{padding:15px 28px;border-radius:999px;font-weight:700;display:inline-block}
+  .btn-a{background:var(--accent);color:#1a1209}
+  .btn-b{border:1.5px solid rgba(255,255,255,.5)}
+  .stamp{position:absolute;right:6%;bottom:9%;width:150px;height:150px;border-radius:50%;
+    border:1.5px dashed var(--accent);display:grid;place-items:center;text-align:center;background:rgba(20,18,16,.6);backdrop-filter:blur(4px)}
+  .stamp b{font-family:"DM Serif Display";font-size:3.2rem;line-height:.9;color:var(--accent);display:block}
+  .stamp small{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase}
 
-    /* Sections */
-    section { padding: 90px 0; }
-    .section-head { text-align: center; max-width: 640px; margin: 0 auto 50px; }
-    .section-head .eyebrow { color: var(--leather); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
-    .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin: 8px 0 12px; }
-    .section-head p { color: var(--muted); }
+  section{padding:100px 0}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+  .head h2{font-size:clamp(2.2rem,4.5vw,3.4rem)}
+  .head p{color:var(--muted);max-width:430px}
 
-    /* Stats */
-    .stats { background: var(--surface); border-bottom: 1px solid var(--border); padding: 40px 0; }
-    .stats .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-    .stat b { display: block; font-family: "Playfair Display", serif; font-size: 2.2rem; color: var(--leather); }
-    .stat span { color: var(--muted); font-size: .95rem; }
+  /* Mozaik kategorija */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;gap:14px}
+  .tile{position:relative;overflow:hidden;border-radius:16px;isolation:isolate}
+  .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;z-index:-2}
+  .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.85));z-index:-1}
+  .tile:hover img{transform:scale(1.06)}
+  .tile .txt{position:absolute;left:22px;right:22px;bottom:20px}
+  .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    background:rgba(200,147,90,.9);color:#1a1209;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+  .tile h3{font-size:1.6rem}
+  .tile p{color:#ddd3c8;font-size:.92rem;margin-top:4px}
+  .big h3{font-size:2.4rem}
+  .t-auto{grid-column:1/3;grid-row:1/3}
+  .t-rest{grid-column:1/3;grid-row:3/5}
+  .t-nam{grid-column:3/5}
 
-    /* Services */
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 32px 28px; transition: box-shadow .2s, transform .2s;
-    }
-    .card:hover { box-shadow: 0 14px 34px rgba(74,44,24,.1); transform: translateY(-3px); }
-    .icon {
-      width: 56px; height: 56px; border-radius: 12px; display: grid; place-items: center;
-      background: #f3e8d8; color: var(--leather); margin-bottom: 20px;
-    }
-    .icon svg { width: 30px; height: 30px; }
-    .card h3 { font-size: 1.35rem; margin-bottom: 14px; }
-    .card ul { list-style: none; }
-    .card li { padding: 6px 0 6px 26px; position: relative; color: var(--muted); }
-    .card li::before {
-      content: ""; position: absolute; left: 0; top: 14px; width: 12px; height: 2px; background: var(--gold);
-    }
+  /* O nama */
+  .about{background:var(--surface)}
+  .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .about-img{border-radius:20px;overflow:hidden;aspect-ratio:4/5;position:relative}
+  .about-img img{width:100%;height:100%;object-fit:cover}
+  .about-img .yrs{position:absolute;left:24px;bottom:24px;background:var(--bg);border-radius:14px;padding:16px 22px}
+  .about-img .yrs b{font-family:"DM Serif Display";font-size:2.8rem;color:var(--accent);line-height:1}
+  .about h2{font-size:clamp(2rem,4vw,3rem);margin:14px 0 20px}
+  .about p{color:var(--muted);margin-bottom:16px}
+  .foam{margin-top:28px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:20px 24px;background:var(--bg)}
+  .foam b{display:block;font-size:1.1rem;margin-bottom:4px}
 
-    /* Materials */
-    .materials { background: var(--surface); border-block: 1px solid var(--border); }
-    .mat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .mat {
-      border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--bg);
-    }
-    .swatch { height: 130px; }
-    .sw-leather { background: radial-gradient(circle at 30% 30%, #a0643a, #5a3219); }
-    .sw-eco { background: linear-gradient(135deg, #2b2b2b, #4a4a4a); }
-    .sw-fabric {
-      background-color: #8a8f7a;
-      background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.08) 0 2px, transparent 2px 4px),
-                        repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 2px, transparent 2px 4px);
-    }
-    .sw-other { background: linear-gradient(135deg, #1f3b57, #7a2e2e, #c79a4b); }
-    .mat div:last-child { padding: 18px 20px; }
-    .mat h3 { font-size: 1.15rem; margin-bottom: 4px; }
-    .mat p { color: var(--muted); font-size: .92rem; }
-    .note {
-      margin-top: 36px; display: flex; gap: 16px; align-items: center;
-      background: #f3e8d8; border-radius: var(--radius); padding: 22px 26px;
-    }
-    .note svg { flex: none; width: 34px; height: 34px; color: var(--leather); }
+  /* Materijali */
+  .mats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .mat{border-radius:16px;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+  .mat img{width:100%;height:190px;object-fit:cover}
+  .mat div{padding:18px 20px}
+  .mat h3{font-size:1.45rem}
+  .mat p{color:var(--muted);font-size:.93rem}
 
-    /* About */
-    .about .container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
-    .about-visual {
-      aspect-ratio: 1; border-radius: 24px; color: #fff; display: grid; place-items: center; text-align: center;
-      background: linear-gradient(135deg, var(--leather-dark), var(--leather));
-      position: relative;
-    }
-    .about-visual::after { content: ""; position: absolute; inset: 14px; border: 2px dashed rgba(199,154,75,.5); border-radius: 16px; }
-    .about-visual b { display: block; font-family: "Playfair Display", serif; font-size: 6rem; color: var(--gold); line-height: 1; }
-    .about-visual span { font-size: 1.2rem; letter-spacing: .05em; }
-    .about h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 18px; }
-    .about p { color: var(--muted); margin-bottom: 16px; }
-    .checks { list-style: none; margin-top: 22px; display: grid; gap: 10px; }
-    .checks li { display: flex; gap: 10px; align-items: flex-start; }
-    .checks li::before { content: "✓"; color: var(--leather); font-weight: 700; }
+  /* Kontakt */
+  .contact{background:linear-gradient(rgba(20,18,16,.88),rgba(20,18,16,.92)),url(images/hero-restoran.jpg) center/cover;text-align:center}
+  .contact h2{font-size:clamp(2.2rem,5vw,3.8rem)}
+  .contact .lead{color:#d6cec4;margin:14px auto 30px;max-width:560px}
+  .phone{font-family:"DM Serif Display";font-size:clamp(2rem,5vw,3.2rem);color:var(--accent);display:inline-block;margin-bottom:26px}
+  .contact .btns{justify-content:center;margin:0 0 50px}
+  .info{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:640px;margin:0 auto}
+  .info div{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(20,18,16,.6)}
+  .info span{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
+  footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem}
 
-    /* Contact */
-    .contact { background: var(--leather-dark); color: #fff; }
-    .contact .section-head p { color: rgba(255,255,255,.75); }
-    .contact .section-head .eyebrow { color: var(--gold); }
-    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .contact-card {
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius); padding: 28px; text-align: center; text-decoration: none;
-      transition: background .2s;
-    }
-    a.contact-card:hover { background: rgba(255,255,255,.12); }
-    .contact-card svg { width: 32px; height: 32px; color: var(--gold); margin-bottom: 12px; }
-    .contact-card h3 { font-size: 1.15rem; margin-bottom: 6px; }
-    .contact-card p { opacity: .8; }
-    .contact .btns { justify-content: center; margin-top: 40px; }
-
-    footer { background: #1c1612; color: rgba(255,255,255,.6); text-align: center; padding: 26px 0; font-size: .9rem; }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .services-grid, .contact-grid { grid-template-columns: 1fr; }
-      .mat-grid, .stats .container { grid-template-columns: repeat(2, 1fr); }
-      .about .container { grid-template-columns: 1fr; gap: 36px; }
-      .about-visual { max-width: 320px; margin: 0 auto; }
-      .menu-btn { display: block; }
-      .nav ul {
-        display: none; position: absolute; top: 64px; left: 0; right: 0;
-        flex-direction: column; gap: 0; background: #2a211b; padding: 10px 16px 20px;
-      }
-      .nav ul.open { display: flex; }
-      .nav ul a { display: block; padding: 12px 0; }
-      .nav .call { display: none; }
-      section { padding: 64px 0; }
-      .hero { padding: 80px 0 90px; }
-    }
-  </style>
+  @media(max-width:900px){
+    nav{gap:10px}
+    .logo{font-size:1.3rem}
+    .tel{padding:9px 16px;font-size:.92rem}
+    .burger{display:grid;place-items:center;margin-right:-8px}
+    .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;
+      background:var(--bg);border-top:1px solid var(--line);padding:6px 16px 18px}
+    .menu li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem;opacity:1}
+    header.open .menu{display:flex}
+    .eyebrow{letter-spacing:.12em;font-size:.72rem}
+    .stamp{width:110px;height:110px;right:16px;bottom:24px}.stamp b{font-size:2.3rem}
+    .bento{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+    .t-auto,.t-rest,.t-nam{grid-column:1/3;grid-row:auto}
+    .t-auto,.t-rest{grid-row:span 2}
+    .big h3{font-size:1.9rem}.tile h3{font-size:1.3rem}.tile p{display:none}.big p{display:block}
+    .about .wrap{grid-template-columns:1fr;gap:40px}
+    .mats{grid-template-columns:1fr 1fr}.mat img{height:130px}
+    .info{grid-template-columns:1fr}
+    section{padding:70px 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .tile img{transition:none}.tile:hover img{transform:none}
+  }
+</style>
 </head>
 <body>
 
-<header>
-  <div class="container nav">
-    <!-- TODO: upisati pravi naziv radnje -->
-    <a href="#" class="logo">Tapetarija <span>[Naziv]</span></a>
-    <button class="menu-btn" aria-label="Meni" onclick="document.querySelector('.nav ul').classList.toggle('open')">☰</button>
-    <ul>
-      <li><a href="#usluge">Usluge</a></li>
-      <li><a href="#materijali">Materijali</a></li>
+<header id="top">
+  <div class="wrap"><nav>
+    <a class="logo" href="#">Tapetarija <span>[Naziv]</span></a>
+    <ul class="menu" id="menu">
+      <li><a href="#kategorije">Šta presvlačimo</a></li>
       <li><a href="#o-nama">O nama</a></li>
+      <li><a href="#materijali">Materijali</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
-    <a href="tel:+38700000000" class="call">Pozovite nas</a>
-  </div>
+    <!-- TODO: upisati pravi broj telefona (ovdje i u dijelu Kontakt) -->
+    <a class="tel" href="tel:+38700000000">Pozovite</a>
+    <button class="burger" aria-label="Otvori meni" aria-expanded="false" aria-controls="menu">
+      <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </nav></div>
 </header>
 
+<main>
 <section class="hero">
-  <div class="container">
-    <div class="badge"><b>40</b> godina iskustva u tapetarskom zanatu</div>
-    <h1>Vratite sjaj vašem <em>vozilu</em>, plovilu i <em>namještaju</em></h1>
-    <p>Stručno presvlačenje auto sjedišta, volana, sjedišta za motore, glisere i brodove, kao i kompletnog namještaja za domove, firme i ugostiteljske objekte.</p>
-    <div class="btns">
-      <a href="#kontakt" class="btn btn-primary">Zatražite ponudu</a>
-      <a href="#usluge" class="btn btn-outline">Pogledajte usluge</a>
-    </div>
+  <div class="wrap">
+    <div class="eyebrow">Tapetarski zanat · 40 godina iskustva</div>
+    <h1>Presvlačenje koje vraća <em>sjaj</em> vašem vozilu i prostoru</h1>
+    <p>Auto sjedišta, volani, ručice mjenjača, motori, gliseri i brodovi. Namještaj za dom, firme, ugostiteljske objekte i ljetne bašte.</p>
+    <div class="btns"><a class="btn btn-a" href="#kontakt">Zatražite ponudu</a><a class="btn btn-b" href="#kategorije">Pogledajte šta radimo</a></div>
   </div>
+  <div class="stamp"><div><b>40</b><small>godina<br>iskustva</small></div></div>
 </section>
 
-<div class="stats">
-  <div class="container">
-    <div class="stat"><b>40+</b><span>godina iskustva</span></div>
-    <div class="stat"><b>Koža</b><span>prava i eko koža</span></div>
-    <div class="stat"><b>Sve vrste</b><span>auto, moto i nautika</span></div>
-    <div class="stat"><b>Po mjeri</b><span>materijal po vašoj želji</span></div>
+<section id="kategorije"><div class="wrap">
+  <div class="head"><div><div class="eyebrow">Šta presvlačimo</div><h2>Sve na čemu se sjedi</h2></div><p>Od jednog volana do kompletnog inventara restorana i ljetne bašte – prava koža, eko koža, platno i mnogi drugi materijali.</p></div>
+  <div class="bento">
+    <a class="tile big t-auto" href="#kontakt"><img src="images/auto-sjedista-smeda.jpg" alt="Presvučena kožna auto sjedišta"><div class="txt"><span class="tag">Vozila</span><h3>Auto sjedišta</h3><p>Kožna i platnena sjedišta i nasloni za ruke.</p></div></a>
+    <a class="tile" href="#kontakt"><img src="images/volan.jpg" alt="Kožni volan" loading="lazy"><div class="txt"><span class="tag">Vozila</span><h3>Kožni volani</h3></div></a>
+    <a class="tile" href="#kontakt"><img src="images/mjenjac.jpg" alt="Kožna ručica mjenjača" loading="lazy"><div class="txt"><span class="tag">Vozila</span><h3>Ručice mjenjača</h3></div></a>
+    <a class="tile" href="#kontakt"><img src="images/motor.jpg" alt="Sjedište motora" loading="lazy"><div class="txt"><span class="tag">Motori</span><h3>Sjedišta za motore</h3></div></a>
+    <a class="tile" href="#kontakt"><img src="images/gliser.jpg" alt="Gliser na vodi" loading="lazy"><div class="txt"><span class="tag">Plovila</span><h3>Gliseri i brodovi</h3></div></a>
+    <a class="tile big t-rest" href="#kontakt"><img src="images/restoran.jpg" alt="Restoran sa presvučenim separeima i stolicama" loading="lazy"><div class="txt"><span class="tag">Ugostiteljstvo</span><h3>Ugostiteljski objekti</h3><p>Preuređenje i presvlačenje kompletnog inventara – stolice, separei, barske stolice.</p></div></a>
+    <a class="tile t-nam" href="#kontakt"><img src="images/namjestaj-dnevna.jpg" alt="Dnevna soba sa foteljama i garniturom" loading="lazy"><div class="txt"><span class="tag">Dom</span><h3>Namještaj i stolice</h3><p>Garniture, fotelje, trpezarijske stolice.</p></div></a>
+    <a class="tile" href="#kontakt"><img src="images/basta.jpg" alt="Ljetna bašta restorana" loading="lazy"><div class="txt"><span class="tag">Ugostiteljstvo</span><h3>Ljetne bašte</h3></div></a>
+    <a class="tile" href="#kontakt"><img src="images/firma-sala.jpg" alt="Sala za sastanke sa stolicama" loading="lazy"><div class="txt"><span class="tag">Firme</span><h3>Namještaj u firmama</h3></div></a>
   </div>
-</div>
+</div></section>
 
-<section id="usluge">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Usluge</div>
-      <h2>Šta radimo</h2>
-      <p>Od jednog volana do kompletnog inventara restorana – svaki posao radimo ručno, pažljivo i sa garancijom kvaliteta.</p>
-    </div>
-
-    <div class="services-grid">
-      <div class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1.5-6.5A2 2 0 0 0 15.6 9H8.4a2 2 0 0 0-1.9 1.5Z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M3 13h2M19 13h2"/></svg>
-        </div>
-        <h3>Vozila</h3>
-        <ul>
-          <li>Kožna i platnena auto sjedišta</li>
-          <li>Kožni volani</li>
-          <li>Ručice mjenjača</li>
-          <li>Nasloni za ruke</li>
-          <li>Sjedišta za motore</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16h18l-2.5 4h-13Z"/><path d="M12 3v13"/><path d="M12 4l6 9h-6"/><path d="M12 7l-4 6h4"/></svg>
-        </div>
-        <h3>Plovila</h3>
-        <ul>
-          <li>Sjedišta za glisere</li>
-          <li>Sjedišta i ležajevi za brodove</li>
-          <li>Materijali otporni na vodu i sunce</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v4H2Z"/><path d="M5 17v2M19 17v2"/></svg>
-        </div>
-        <h3>Namještaj i objekti</h3>
-        <ul>
-          <li>Presvlačenje namještaja i stolica</li>
-          <li>Kompletan inventar ugostiteljskih objekata</li>
-          <li>Ljetne bašte</li>
-          <li>Namještaj u firmama i kancelarijama</li>
-          <li>Preuređenje i obnova</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-      <div><strong>Zamjena dotrajale spužve</strong> – osim presvlake, mijenjamo i ulegnutu ili dotrajalu spužvu, pa sjedište ili komad namještaja dobija udobnost kao nov.</div>
-    </div>
+<section class="about" id="o-nama"><div class="wrap">
+  <!-- TODO: obavezno zamijeniti images/majstor.jpg vašom fotografijom (vlasnik ili radionica) -->
+  <div class="about-img"><img src="images/majstor.jpg" alt="Majstor šije kožu u radionici" loading="lazy"><div class="yrs"><b>40</b><div>godina zanata</div></div></div>
+  <div>
+    <div class="eyebrow">O nama</div>
+    <h2>Iskustvo koje se vidi u svakom šavu</h2>
+    <p>Već 40 godina presvlačimo sjedišta i namještaj. Radimo za vlasnike automobila, motora i plovila, za domaćinstva, firme i ugostiteljske objekte.</p>
+    <p>Svaki posao radimo ručno i pažljivo, od krojenja do posljednjeg šava.</p>
+    <div class="foam"><b>Zamjena dotrajale spužve</b>Osim presvlake mijenjamo i ulegnutu ili dotrajalu spužvu, pa je sjedište ponovo udobno kao novo.</div>
   </div>
-</section>
+</div></section>
 
-<section id="materijali" class="materials">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Materijali</div>
-      <h2>Materijal po vašoj želji</h2>
-      <p>Pomoći ćemo vam da izaberete materijal i boju koji najbolje odgovaraju namjeni i budžetu.</p>
-    </div>
-    <div class="mat-grid">
-      <div class="mat"><div class="swatch sw-leather"></div><div><h3>Prava koža</h3><p>Luksuzan izgled, dugotrajnost i prepoznatljiv osjećaj.</p></div></div>
-      <div class="mat"><div class="swatch sw-eco"></div><div><h3>Eko koža</h3><p>Izgled kože po povoljnijoj cijeni, lako održavanje.</p></div></div>
-      <div class="mat"><div class="swatch sw-fabric"></div><div><h3>Platno</h3><p>Prozračno, udobno i dostupno u mnogo boja i dezena.</p></div></div>
-      <div class="mat"><div class="swatch sw-other"></div><div><h3>I mnogi drugi</h3><p>Alkantara, štof, nautički materijali i još mnogo toga.</p></div></div>
-    </div>
+<section id="materijali"><div class="wrap">
+  <div class="head"><div><div class="eyebrow">Materijali</div><h2>Materijal po vašoj želji</h2></div><p>Pomoći ćemo vam da izaberete materijal i boju prema namjeni i budžetu.</p></div>
+  <div class="mats">
+    <div class="mat"><img src="images/mat-koza.jpg" alt="Prava koža" loading="lazy"><div><h3>Prava koža</h3><p>Luksuzan izgled i dugotrajnost.</p></div></div>
+    <div class="mat"><img src="images/mat-eko-koza.jpg" alt="Eko koža" loading="lazy"><div><h3>Eko koža</h3><p>Izgled kože, lako održavanje.</p></div></div>
+    <div class="mat"><img src="images/mat-platno.jpg" alt="Platno" loading="lazy"><div><h3>Platno</h3><p>Mnogo boja i dezena.</p></div></div>
+    <div class="mat"><img src="images/restoran-stolice.jpg" alt="Stolice u različitim materijalima i bojama" loading="lazy"><div><h3>I mnogi drugi</h3><p>Pitajte nas za vašu ideju.</p></div></div>
   </div>
-</section>
+</div></section>
 
-<section id="o-nama" class="about">
-  <div class="container">
-    <div class="about-visual"><div><b>40</b><span>godina zanata</span></div></div>
-    <div>
-      <h2>Iskustvo koje se vidi u svakom šavu</h2>
-      <p>Već 40 godina presvlačimo sjedišta i namještaj za naše mušterije. Za to vrijeme prošli smo kroz hiljade vozila, plovila i komada namještaja – od jednog volana do kompletnog opremanja restorana i ljetnih bašti.</p>
-      <p>Svaki posao radimo kao da je za nas: precizno krojenje, kvalitetni materijali i čvrsti šavovi koji traju godinama.</p>
-      <ul class="checks">
-        <li>Besplatan dogovor i procjena</li>
-        <li>Veliki izbor materijala i boja</li>
-        <li>Rad za fizička lica, firme i ugostitelje</li>
-        <li>Pouzdani rokovi i poštena cijena</li>
-      </ul>
-    </div>
+<section class="contact" id="kontakt"><div class="wrap">
+  <div class="eyebrow">Kontakt</div>
+  <h2>Pošaljite sliku – dobijte ponudu</h2>
+  <p class="lead">Fotografišite ono što želite presvući i pošaljite nam na Viber ili WhatsApp.</p>
+  <!-- TODO: upisati pravi broj telefona, adresu i radno vrijeme -->
+  <a class="phone" href="tel:+38700000000">+387 00 000 000</a>
+  <div class="btns"><a class="btn btn-a" href="viber://chat?number=%2B38700000000">Viber</a><a class="btn btn-b" href="https://wa.me/38700000000">WhatsApp</a></div>
+  <div class="info">
+    <div><span>Adresa</span>Ulica i broj, Grad</div>
+    <div><span>Radno vrijeme</span>Pon–Pet 08–16h · Sub 08–13h</div>
   </div>
-</section>
+</div></section>
+</main>
 
-<section id="kontakt" class="contact">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Kontakt</div>
-      <h2>Javite nam se</h2>
-      <p>Pošaljite nam fotografiju onoga što želite presvući i dobićete okvirnu ponudu.</p>
-    </div>
-    <!-- TODO: upisati pravi telefon, adresu i radno vrijeme -->
-    <div class="contact-grid">
-      <a class="contact-card" href="tel:+38700000000">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
-        <h3>Telefon</h3>
-        <p>+387 00 000 000</p>
-      </a>
-      <div class="contact-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        <h3>Adresa</h3>
-        <p>Ulica i broj, Grad</p>
-      </div>
-      <div class="contact-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <h3>Radno vrijeme</h3>
-        <p>Pon–Pet: 08–16h<br>Sub: 08–13h</p>
-      </div>
-    </div>
-    <div class="btns">
-      <a href="https://wa.me/38700000000" class="btn btn-primary">Pišite na WhatsApp</a>
-      <a href="viber://chat?number=%2B38700000000" class="btn btn-outline">Pišite na Viber</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">© <span id="year"></span> Tapetarija [Naziv] · Presvlačenje auto sjedišta i namještaja · 40 godina iskustva</div>
-</footer>
+<footer>© <span id="year">2026</span> Tapetarija [Naziv] · 40 godina iskustva</footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  document.querySelectorAll('.nav ul a').forEach(a =>
-    a.addEventListener('click', () => document.querySelector('.nav ul').classList.remove('open')));
+
+  // Zaglavlje dobija tamnu pozadinu kad se skrola
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Meni na mobitelu
+  const burger = header.querySelector('.burger');
+  const setOpen = open => {
+    header.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Zatvori meni' : 'Otvori meni');
+  };
+  burger.addEventListener('click', () => setOpen(!header.classList.contains('open')));
+  header.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => setOpen(false)));
 </script>
 </body>
 </html>

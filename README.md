@@ -2,6 +2,9 @@
 
 Jednostavna statička stranica (`index.html`), bez instalacije i alata. Otvori se direktno u pregledniku.
 
+**Izabran je dizajn 4 (foto mozaik)** – on je sada glavna stranica `index.html`, dopunjen menijem za mobitel
+i zaglavljem koje ostaje na vrhu (dugme „Pozovite“ je uvijek vidljivo).
+
 ## Prijedlozi dizajna
 U folderu `prijedlozi/` je šest različitih dizajna (svaki ima i sliku ekrana):
 
@@ -14,10 +17,10 @@ U folderu `prijedlozi/` je šest različitih dizajna (svaki ima i sliku ekrana):
 | 5 | `5-svijetli-kategorije.html` | svijetli, svaka kategorija u svom redu s fotografijama |
 | 6 | `6-interaktivni.html` | slajdovi u zaglavlju, kartice po kategorijama, dugme za poziv na mobitelu |
 
-Kad se izabere dizajn, on postaje `index.html`.
+Ostali prijedlozi su sačuvani za poređenje.
 
 ## Šta treba popuniti
-Potražiti `TODO` i `[Naziv]` i zamijeniti:
+U `index.html` potražiti `TODO` i `[Naziv]` i zamijeniti:
 - naziv radnje
 - broj telefona (`+38700000000` – koristi se za poziv, WhatsApp i Viber)
 - adresu i radno vrijeme
