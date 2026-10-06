@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prijedlog 5 – Svijetli s kategorijama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,700&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fbfaf8;--soft:#f3eee7;--text:#1c1a17;--muted:#6a645c;--accent:#b8532d;--line:#e6dfd5}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:Figtree,sans-serif;line-height:1.65}
+  h1,h2,h3{font-family:Fraunces,serif;font-weight:700;line-height:1.1;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+
+  header{position:sticky;top:0;z-index:10;background:rgba(251,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-family:Fraunces;font-weight:700;font-size:1.4rem}
+  .logo span{color:var(--accent)}
+  nav ul{display:flex;gap:28px;list-style:none;font-weight:500;color:var(--muted)}
+  nav ul a:hover{color:var(--accent)}
+  .btn{display:inline-block;padding:13px 24px;border-radius:10px;font-weight:700}
+  .btn-a{background:var(--accent);color:#fff}
+  .btn-b{background:var(--soft)}
+
+  /* Hero */
+  .hero{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;padding:60px 0 50px}
+  .kicker{display:inline-flex;gap:8px;align-items:center;font-weight:700;color:var(--accent);font-size:.9rem;margin-bottom:16px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--accent)}
+  .hero h1{font-size:clamp(2.5rem,5.2vw,4.2rem)}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero p{color:var(--muted);font-size:1.12rem;margin:20px 0 30px;max-width:500px}
+  .hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .collage{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:230px 230px;gap:14px;position:relative}
+  .collage img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+  .collage .c1{grid-row:1/3}
+  .badge40{position:absolute;left:-26px;bottom:30px;background:var(--text);color:#fff;border-radius:16px;padding:16px 22px;box-shadow:0 14px 30px rgba(0,0,0,.18)}
+  .badge40 b{font-family:Fraunces;font-size:2.6rem;line-height:1;color:#f0b48f;display:block}
+
+  /* Brzi izbor kategorija */
+  .quick{padding:30px 0 60px}
+  .quick-list{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+  .chip{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 18px 6px 6px;font-weight:700;transition:border-color .2s,transform .2s}
+  .chip:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .chip img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+
+  /* Kategorije – naizmjenični redovi */
+  .cat{padding:70px 0;border-top:1px solid var(--line)}
+  .cat .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+  .cat.flip .media{order:2}
+  .media{position:relative}
+  .media .main{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:22px}
+  .media .small{position:absolute;right:-18px;bottom:-26px;width:38%;aspect-ratio:1;object-fit:cover;border-radius:16px;border:6px solid var(--bg)}
+  .cat.flip .media .small{right:auto;left:-18px}
+  .num{font-family:Fraunces;font-size:1rem;color:var(--accent);font-weight:700;letter-spacing:.1em}
+  .cat h2{font-size:clamp(2rem,3.6vw,2.8rem);margin:8px 0 16px}
+  .cat p{color:var(--muted);margin-bottom:18px}
+  .list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin-bottom:26px}
+  .list li{display:flex;gap:10px;align-items:baseline}
+  .list li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent);transform:translateY(-1px)}
+  .minis{display:flex;gap:12px;margin-bottom:26px}
+  .mini{flex:1;display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px}
+  .mini img{width:58px;height:58px;border-radius:10px;object-fit:cover}
+  .mini b{font-size:.95rem;line-height:1.3}
+  .more{font-weight:700;color:var(--accent)}
+  .more::after{content:" →"}
+
+  /* Spužva */
+  .foam{background:var(--accent);color:#fff;border-radius:22px;padding:40px 46px;display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;margin:40px 0}
+  .foam svg{width:54px;height:54px}
+  .foam h3{font-size:1.8rem;margin-bottom:4px}
+  .foam p{opacity:.9}
+  .foam .btn{background:#fff;color:var(--accent)}
+
+  /* Materijali */
+  .sec-head{text-align:center;max-width:620px;margin:0 auto 42px}
+  .sec-head h2{font-size:clamp(2rem,4vw,3rem);margin-top:6px}
+  .sec-head p{color:var(--muted);margin-top:10px}
+  .mats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .mat{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/4}
+  .mat img{width:100%;height:100%;object-fit:cover}
+  .mat div{position:absolute;inset:auto 12px 12px;background:rgba(255,255,255,.94);border-radius:12px;padding:12px 16px}
+  .mat h3{font-size:1.2rem}
+  .mat p{font-size:.88rem;color:var(--muted)}
+
+  /* Galerija radova */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .ph{aspect-ratio:4/3;border:2px dashed #cdbfae;border-radius:18px;display:grid;place-items:center;text-align:center;color:var(--muted);background:var(--soft);padding:20px}
+  .ph svg{width:40px;height:40px;margin:0 auto 10px;color:var(--accent)}
+  .ph b{display:block;color:var(--text)}
+
+  /* Kontakt */
+  .contact{background:var(--text);color:#fff;border-radius:28px;padding:60px;display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+  .contact h2{font-size:clamp(2rem,4vw,3rem)}
+  .contact p{color:#bdb6ad;margin:14px 0 26px}
+  .contact .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .contact .btn-b{background:rgba(255,255,255,.1);color:#fff}
+  .rows div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .rows span{color:#bdb6ad}
+  .big-tel{font-family:Fraunces;font-size:2rem;color:#f0b48f;display:block;margin-bottom:10px}
+  footer{padding:36px 0;text-align:center;color:var(--muted);font-size:.9rem}
+
+  @media(max-width:900px){
+    nav ul{display:none}
+    .hero,.cat .wrap,.contact{grid-template-columns:1fr}
+    .hero{gap:40px;padding-top:36px}
+    .collage{grid-template-rows:150px 150px}
+    .badge40{left:12px;bottom:-18px;padding:12px 16px}.badge40 b{font-size:2rem}
+    .cat .wrap{gap:44px}.cat.flip .media{order:0}
+    .media .small{right:-6px;bottom:-20px;width:34%}.cat.flip .media .small{left:auto;right:-6px}
+    .list{grid-template-columns:1fr}
+    .foam{grid-template-columns:1fr;padding:30px 26px;text-align:left}
+    .mats{grid-template-columns:1fr 1fr}
+    .gallery{grid-template-columns:1fr}
+    .contact{padding:36px 24px}
+    .cat{padding:54px 0}
+  }
+</style>
+</head>
+<body>
+
+<header><div class="wrap"><nav>
+  <div class="logo">Tapetarija <span>[Naziv]</span></div>
+  <ul><li><a href="#vozila">Vozila</a></li><li><a href="#plovila">Plovila</a></li><li><a href="#namjestaj">Namještaj</a></li><li><a href="#ugostiteljstvo">Ugostiteljstvo</a></li><li><a href="#firme">Firme</a></li></ul>
+  <a class="btn btn-a" href="tel:+38700000000">Pozovite</a>
+</nav></div></header>
+
+<div class="wrap hero">
+  <div>
+    <div class="kicker">40 godina iskustva</div>
+    <h1>Sve na čemu sjedite – <em>mi presvlačimo</em></h1>
+    <p>Auto sjedišta, volani, ručice mjenjača, motori, gliseri i brodovi, namještaj za dom i firme, kompletan inventar restorana, kafića i ljetnih bašti.</p>
+    <div class="btns"><a class="btn btn-a" href="#kontakt">Zatražite ponudu</a><a class="btn btn-b" href="#vozila">Pogledajte usluge</a></div>
+  </div>
+  <div class="collage">
+    <img class="c1" src="../images/auto-sjedista-crvena.jpg" alt="Crvena kožna auto sjedišta">
+    <img src="../images/namjestaj-stolice.jpg" alt="Presvučene stolice za trpezariju">
+    <img src="../images/restoran-stolice.jpg" alt="Presvučene stolice u restoranu">
+    <div class="badge40"><b>40</b>godina zanata</div>
+  </div>
+</div>
+
+<div class="quick"><div class="wrap quick-list">
+  <a class="chip" href="#vozila"><img src="../images/auto-sjedista-smeda.jpg" alt="">Auto sjedišta</a>
+  <a class="chip" href="#vozila"><img src="../images/volan.jpg" alt="">Volani i mjenjači</a>
+  <a class="chip" href="#plovila"><img src="../images/motor.jpg" alt="">Motori</a>
+  <a class="chip" href="#plovila"><img src="../images/gliser.jpg" alt="">Gliseri i brodovi</a>
+  <a class="chip" href="#namjestaj"><img src="../images/namjestaj-dnevna.jpg" alt="">Namještaj</a>
+  <a class="chip" href="#ugostiteljstvo"><img src="../images/restoran.jpg" alt="">Restorani i kafići</a>
+  <a class="chip" href="#ugostiteljstvo"><img src="../images/basta.jpg" alt="">Ljetne bašte</a>
+  <a class="chip" href="#firme"><img src="../images/firma-sala.jpg" alt="">Firme</a>
+</div></div>
+
+<section class="cat" id="vozila"><div class="wrap">
+  <div class="media"><img class="main" src="../images/auto-sjedista-smeda.jpg" alt="Kožna auto sjedišta" loading="lazy"><img class="small" src="../images/volan.jpg" alt="Kožni volan" loading="lazy"></div>
+  <div>
+    <div class="num">01 — VOZILA</div>
+    <h2>Auto sjedišta i unutrašnjost</h2>
+    <p>Presvlačimo kožna i platnena sjedišta, kao i detalje koji se najviše troše.</p>
+    <ul class="list"><li>Kožna auto sjedišta</li><li>Platnena auto sjedišta</li><li>Kožni volani</li><li>Ručice mjenjača</li><li>Nasloni za ruke</li><li>Zamjena spužve</li></ul>
+    <div class="minis">
+      <div class="mini"><img src="../images/volan.jpg" alt="" loading="lazy"><b>Kožni<br>volani</b></div>
+      <div class="mini"><img src="../images/mjenjac.jpg" alt="" loading="lazy"><b>Ručice<br>mjenjača</b></div>
+    </div>
+    <a class="more" href="#kontakt">Pošaljite sliku vašeg vozila</a>
+  </div>
+</div></section>
+
+<section class="cat flip" id="plovila"><div class="wrap">
+  <div class="media"><img class="main" src="../images/brod-sjedista.jpg" alt="Sjedišta na brodu" loading="lazy"><img class="small" src="../images/motor.jpg" alt="Motor" loading="lazy"></div>
+  <div>
+    <div class="num">02 — MOTORI I PLOVILA</div>
+    <h2>Motori, gliseri i brodovi</h2>
+    <p>Za sjedišta koja su izložena suncu i vodi biramo odgovarajuće materijale.</p>
+    <ul class="list"><li>Sjedišta za motore</li><li>Sjedišta za glisere</li><li>Sjedišta za brodove</li></ul>
+    <a class="more" href="#kontakt">Zatražite ponudu</a>
+  </div>
+</div></section>
+
+<section class="cat" id="namjestaj"><div class="wrap">
+  <div class="media"><img class="main" src="../images/namjestaj-dnevna.jpg" alt="Garnitura i fotelje u dnevnoj sobi" loading="lazy"><img class="small" src="../images/namjestaj-stolice.jpg" alt="Stolice" loading="lazy"></div>
+  <div>
+    <div class="num">03 — DOM</div>
+    <h2>Namještaj i stolice</h2>
+    <p>Stara garnitura ili omiljena fotelja može ponovo izgledati kao nova – nova presvlaka i nova spužva.</p>
+    <ul class="list"><li>Garniture i kauči</li><li>Fotelje</li><li>Trpezarijske stolice</li><li>Zamjena spužve</li></ul>
+    <a class="more" href="#kontakt">Pošaljite sliku namještaja</a>
+  </div>
+</div></section>
+
+<section class="cat flip" id="ugostiteljstvo"><div class="wrap">
+  <div class="media"><img class="main" src="../images/restoran.jpg" alt="Restoran sa separeima i stolicama" loading="lazy"><img class="small" src="../images/basta-jastuci.jpg" alt="Ljetna bašta sa jastucima" loading="lazy"></div>
+  <div>
+    <div class="num">04 — UGOSTITELJSTVO</div>
+    <h2>Restorani, kafići i ljetne bašte</h2>
+    <p>Preuređujemo i presvlačimo kompletan inventar ugostiteljskih objekata – unutra i u bašti.</p>
+    <ul class="list"><li>Stolice i fotelje</li><li>Separei i klupe</li><li>Barske stolice</li><li>Ljetne bašte</li><li>Jastuci za bašte</li><li>Kompletno preuređenje</li></ul>
+    <a class="more" href="#kontakt">Zatražite ponudu za objekat</a>
+  </div>
+</div></section>
+
+<section class="cat" id="firme"><div class="wrap">
+  <div class="media"><img class="main" src="../images/firma-sala.jpg" alt="Sala za sastanke" loading="lazy"><img class="small" src="../images/firma-stolice.jpg" alt="Kancelarijske stolice" loading="lazy"></div>
+  <div>
+    <div class="num">05 — FIRME</div>
+    <h2>Namještaj u firmama</h2>
+    <p>Kancelarijske stolice, sale za sastanke i čekaonice – obnova bez kupovine novog namještaja.</p>
+    <ul class="list"><li>Kancelarijske stolice</li><li>Sale za sastanke</li><li>Čekaonice</li><li>Fotelje i sofe</li></ul>
+    <a class="more" href="#kontakt">Zatražite ponudu za firmu</a>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <div class="foam">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+    <div><h3>Zamjena dotrajale spužve</h3><p>Ulegnuto sjedište? Mijenjamo spužvu i vraćamo udobnost kao prvog dana.</p></div>
+    <a class="btn" href="#kontakt">Pitajte nas</a>
+  </div>
+</div>
+
+<section style="padding:70px 0"><div class="wrap">
+  <div class="sec-head"><div class="num">MATERIJALI</div><h2>Materijal po vašoj želji</h2><p>Prava koža, eko koža, platno i mnogi drugi – u bojama koje izaberete.</p></div>
+  <div class="mats">
+    <div class="mat"><img src="../images/mat-koza.jpg" alt="Prava koža" loading="lazy"><div><h3>Prava koža</h3><p>Luksuz i dugotrajnost</p></div></div>
+    <div class="mat"><img src="../images/mat-eko-koza.jpg" alt="Eko koža" loading="lazy"><div><h3>Eko koža</h3><p>Praktična i povoljnija</p></div></div>
+    <div class="mat"><img src="../images/mat-platno.jpg" alt="Platno" loading="lazy"><div><h3>Platno</h3><p>Bogat izbor boja</p></div></div>
+    <div class="mat"><img src="../images/namjestaj-stolice.jpg" alt="Somot i drugi materijali" loading="lazy"><div><h3>I mnogi drugi</h3><p>Po vašoj ideji</p></div></div>
+  </div>
+</div></section>
+
+<section style="padding:20px 0 80px"><div class="wrap">
+  <div class="sec-head"><div class="num">NAŠI RADOVI</div><h2>Prije i poslije</h2><p>Ovaj dio je rezervisan za fotografije vaših stvarnih radova – one najviše prodaju.</p></div>
+  <div class="gallery">
+    <div class="ph"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/></svg><b>Vaša fotografija</b>auto sjedište – prije / poslije</div></div>
+    <div class="ph"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/></svg><b>Vaša fotografija</b>namještaj – prije / poslije</div></div>
+    <div class="ph"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/></svg><b>Vaša fotografija</b>restoran ili bašta</div></div>
+  </div>
+</div></section>
+
+<div class="wrap" id="kontakt">
+  <div class="contact">
+    <div><h2>Pošaljite fotografiju, mi šaljemo ponudu</h2><p>Fotografišite sjedište ili namještaj i pošaljite na Viber ili WhatsApp.</p>
+      <div class="btns"><a class="btn btn-a" href="viber://chat?number=%2B38700000000">Viber</a><a class="btn btn-b" href="https://wa.me/38700000000">WhatsApp</a></div></div>
+    <div>
+      <a class="big-tel" href="tel:+38700000000">+387 00 000 000</a>
+      <div class="rows">
+        <div><span>Adresa</span><b>Ulica i broj, Grad</b></div>
+        <div><span>Radno vrijeme</span><b>Pon–Pet 08–16h</b></div>
+        <div><span>Subota</span><b>08–13h</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>© Tapetarija [Naziv] · 40 godina iskustva</footer>
+</body>
+</html>
