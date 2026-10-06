@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prijedlog 2 – Svijetli čisti</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#ffffff;--soft:#f3f5f8;--text:#111827;--muted:#5b6475;--accent:#1d4ed8;--line:#e5e8ee}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Manrope,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+  nav{display:flex;justify-content:space-between;align-items:center;height:80px}
+  .logo{font-weight:800;font-size:1.25rem;display:flex;align-items:center;gap:10px}
+  .logo i{width:30px;height:30px;border-radius:8px;background:var(--accent);display:inline-block}
+  nav ul{display:flex;gap:30px;list-style:none;color:var(--muted);font-weight:500}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:13px 24px;border-radius:10px;font-weight:700}
+  .btn.ghost{background:var(--soft);color:var(--text)}
+  .hero{padding:50px 0 80px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .pill{display:inline-block;background:#e8efff;color:var(--accent);font-weight:700;padding:6px 14px;border-radius:999px;font-size:.85rem;margin-bottom:20px}
+  h1{font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.08;font-weight:800;letter-spacing:-.02em}
+  h1 span{color:var(--accent)}
+  .hero p{color:var(--muted);font-size:1.12rem;margin:22px 0 32px;max-width:500px}
+  .hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .pics{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:200px 200px;gap:14px}
+  .pic{border-radius:18px;background:var(--soft);display:flex;align-items:flex-end;padding:16px;color:var(--muted);font-size:.8rem;font-weight:500}
+  .pic:first-child{grid-row:span 2;background:linear-gradient(160deg,#dbe4f3,#b9c7e0)}
+  .pic:nth-child(2){background:linear-gradient(160deg,#ece6dc,#d8cbb6)}
+  .pic.stat{background:var(--accent);color:#fff;flex-direction:column;align-items:flex-start;justify-content:flex-end}
+  .pic.stat b{font-size:3.2rem;line-height:1;font-weight:800}
+  .pic.stat span{font-size:1rem}
+  section{padding:90px 0}
+  .soft{background:var(--soft)}
+  .title{text-align:center;max-width:600px;margin:0 auto 50px}
+  .title h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800;letter-spacing:-.02em}
+  .title p{color:var(--muted);margin-top:10px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:#fff;border-radius:18px;padding:32px;border:1px solid var(--line)}
+  .card .ic{width:48px;height:48px;border-radius:12px;background:#e8efff;color:var(--accent);display:grid;place-items:center;font-size:1.4rem;margin-bottom:20px}
+  .card h3{font-size:1.25rem;font-weight:800;margin-bottom:12px}
+  .card li{list-style:none;color:var(--muted);padding:5px 0}
+  .card li::before{content:"✓  ";color:var(--accent);font-weight:800}
+  .foam{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .foam b{font-size:1.1rem}
+  .chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:12px 22px;font-weight:700;display:flex;align-items:center;gap:10px}
+  .chip i{width:18px;height:18px;border-radius:50%;display:inline-block}
+  .cta-box{background:var(--text);color:#fff;border-radius:24px;padding:60px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+  .cta-box h2{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:800;line-height:1.15}
+  .cta-box p{color:#b7bfcc;margin-top:12px}
+  .info{display:grid;gap:12px}
+  .info div{background:rgba(255,255,255,.07);border-radius:12px;padding:14px 18px;display:flex;justify-content:space-between;gap:14px}
+  .info span{color:#b7bfcc}
+  footer{padding:30px 0;text-align:center;color:var(--muted);font-size:.9rem}
+  @media(max-width:860px){nav ul{display:none}.hero,.cta-box{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.cta-box{padding:34px 24px}.pics{grid-template-rows:150px 150px}section{padding:64px 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="logo"><i></i>Tapetarija [Naziv]</div>
+    <ul><li>Usluge</li><li>Materijali</li><li>Kontakt</li></ul>
+    <a class="btn" href="tel:+38700000000">Pozovite</a>
+  </nav>
+  <div class="hero">
+    <div>
+      <div class="pill">40 godina iskustva</div>
+      <h1>Sjedišta i namještaj <span>kao novi</span></h1>
+      <p>Presvlačimo auto sjedišta, volane, sjedišta za motore, glisere i brodove, kao i namještaj za domove, firme i ugostiteljske objekte.</p>
+      <div class="btns"><a class="btn" href="#kontakt">Zatražite ponudu</a><a class="btn ghost" href="#usluge">Usluge</a></div>
+    </div>
+    <div class="pics">
+      <div class="pic">Fotografija: auto sjedište</div>
+      <div class="pic">Fotografija: namještaj</div>
+      <div class="pic stat"><b>40+</b><span>godina zanata</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="soft" id="usluge"><div class="wrap">
+  <div class="title"><h2>Naše usluge</h2><p>Sve na jednom mjestu – za vozila, plovila i prostore.</p></div>
+  <div class="cards">
+    <div class="card"><div class="ic">🚗</div><h3>Auto i moto</h3><ul><li>Kožna i platnena sjedišta</li><li>Kožni volani</li><li>Ručice mjenjača</li><li>Nasloni za ruke</li><li>Sjedišta za motore</li></ul></div>
+    <div class="card"><div class="ic">⛵</div><h3>Gliseri i brodovi</h3><ul><li>Sjedišta za glisere</li><li>Sjedišta za brodove</li></ul></div>
+    <div class="card"><div class="ic">🪑</div><h3>Namještaj</h3><ul><li>Namještaj i stolice</li><li>Ugostiteljski objekti</li><li>Ljetne bašte</li><li>Namještaj u firmama</li></ul></div>
+  </div>
+  <div class="foam"><b>Zamjena dotrajale spužve</b><span style="color:var(--muted)">Vraćamo udobnost uz novu presvlaku.</span></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="title"><h2>Materijali po vašoj želji</h2></div>
+  <div class="chips">
+    <div class="chip"><i style="background:#7b4a26"></i>Prava koža</div>
+    <div class="chip"><i style="background:#222"></i>Eko koža</div>
+    <div class="chip"><i style="background:#8e9a84"></i>Platno</div>
+    <div class="chip"><i style="background:linear-gradient(135deg,#1d4ed8,#e11d48)"></i>I mnogi drugi</div>
+  </div>
+</div></section>
+
+<section id="kontakt" style="padding-top:0"><div class="wrap">
+  <div class="cta-box">
+    <div><h2>Pošaljite fotografiju, a mi ćemo vam dati ponudu.</h2><p>Javite se pozivom ili porukom na Viber / WhatsApp.</p></div>
+    <div class="info">
+      <div><span>Telefon</span><b>+387 00 000 000</b></div>
+      <div><span>Adresa</span><b>Ulica i broj, Grad</b></div>
+      <div><span>Radno vrijeme</span><b>Pon–Pet 08–16h</b></div>
+    </div>
+  </div>
+</div></section>
+<footer>© Tapetarija [Naziv] · 40 godina iskustva</footer>
+</body>
+</html>

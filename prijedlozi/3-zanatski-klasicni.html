@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prijedlog 3 – Zanatski klasični</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f1ece3;--text:#1f2a24;--muted:#5e665f;--accent:#2f4a3a;--line:#cfc6b6;--brass:#a67c3d}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:"Work Sans",sans-serif;line-height:1.65}
+  h1,h2,h3{font-family:Lora,serif;font-weight:700;line-height:1.05}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1100px,100% - 32px);margin-inline:auto}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:28px 0;border-bottom:1px solid var(--text)}
+  .logo{font-family:Lora;font-size:1.7rem;font-weight:700}
+  .logo small{display:block;font-family:"Work Sans";font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+  nav ul{display:flex;gap:30px;list-style:none;font-size:.9rem}
+  .hero{padding:80px 0 70px;text-align:center}
+  .est{font-size:.8rem;letter-spacing:.35em;text-transform:uppercase;color:var(--brass);margin-bottom:24px}
+  .hero h1{font-size:clamp(2.8rem,7vw,5.6rem);max-width:900px;margin:0 auto}
+  .hero h1 em{font-style:italic;color:var(--accent);font-weight:500}
+  .hero p{max-width:600px;margin:26px auto 36px;color:var(--muted);font-size:1.1rem}
+  .btn{display:inline-block;border:1px solid var(--text);padding:14px 30px;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase}
+  .btn.fill{background:var(--accent);border-color:var(--accent);color:#fff;margin-right:10px}
+  .banner{height:360px;margin-top:60px;background:
+    linear-gradient(rgba(31,42,36,.15),rgba(31,42,36,.15)),
+    repeating-linear-gradient(135deg,#c9bda8 0 1px,transparent 1px 14px),#d8cdb9;
+    display:grid;place-items:center;color:var(--muted);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+  section{padding:90px 0}
+  .sec-title{display:grid;grid-template-columns:200px 1fr;gap:30px;margin-bottom:46px;border-top:1px solid var(--text);padding-top:20px}
+  .sec-title span{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--brass)}
+  .sec-title h2{font-size:clamp(2.2rem,4.5vw,3.4rem)}
+  .svc{display:grid;grid-template-columns:200px 1fr 1fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line)}
+  .svc .n{font-family:Lora;font-size:3rem;color:var(--brass);line-height:1}
+  .svc h3{font-size:2rem}
+  .svc p{color:var(--muted)}
+  .quote{background:var(--accent);color:#efe9dd;text-align:center;padding:80px 0}
+  .quote b{display:block;font-family:Lora;font-size:clamp(5rem,12vw,9rem);line-height:1;color:var(--brass)}
+  .quote p{font-family:Lora;font-style:italic;font-size:clamp(1.4rem,3vw,2rem);max-width:720px;margin:10px auto 0}
+  .mats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .mats div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 22px}
+  .mats h3{font-size:1.6rem;margin-bottom:6px}
+  .mats p{color:var(--muted);font-size:.95rem}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+  .contact h2{font-size:clamp(2.4rem,5vw,3.6rem)}
+  .contact p{color:var(--muted);margin:16px 0 28px}
+  dl{display:grid;grid-template-columns:auto 1fr;gap:16px 30px;border-top:1px solid var(--text);padding-top:24px}
+  dt{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+  footer{border-top:1px solid var(--text);padding:26px 0;font-size:.85rem;color:var(--muted);text-align:center}
+  @media(max-width:860px){nav ul{display:none}.sec-title,.svc,.contact{grid-template-columns:1fr;gap:10px}.mats{grid-template-columns:1fr 1fr}.banner{height:220px}section{padding:64px 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="logo">Tapetarija [Naziv]<small>Ručni rad · 40 godina</small></div>
+    <ul><li>Usluge</li><li>Materijali</li><li>Kontakt</li></ul>
+  </nav>
+  <div class="hero">
+    <div class="est">— 40 godina zanata —</div>
+    <h1>Presvlačenje s <em>pažnjom</em> koja se vidi u svakom šavu</h1>
+    <p>Auto sjedišta, volani, ručice mjenjača, sjedišta za motore, glisere i brodove. Namještaj za domove, firme, restorane i ljetne bašte.</p>
+    <a class="btn fill" href="#kontakt">Zatražite ponudu</a><a class="btn" href="#usluge">Usluge</a>
+  </div>
+</div>
+<div class="banner">Ovdje ide velika fotografija radionice ili rada</div>
+
+<section id="usluge"><div class="wrap">
+  <div class="sec-title"><span>Usluge</span><h2>Šta radimo</h2></div>
+  <div class="svc"><div class="n">I</div><h3>Vozila</h3><p>Kožna i platnena auto sjedišta, kožni volani, ručice mjenjača, nasloni za ruke i sjedišta za motore.</p></div>
+  <div class="svc"><div class="n">II</div><h3>Plovila</h3><p>Sjedišta za glisere i brodove, od materijala otpornih na vodu i sunce.</p></div>
+  <div class="svc"><div class="n">III</div><h3>Namještaj</h3><p>Presvlačenje namještaja i stolica, preuređenje kompletnog inventara ugostiteljskih objekata, ljetnih bašti i namještaja u firmama.</p></div>
+  <div class="svc"><div class="n">IV</div><h3>Nova spužva</h3><p>Zamjena dotrajale spužve – udobnost kao prvog dana.</p></div>
+</div></section>
+
+<div class="quote"><b>40</b><p>„Četiri decenije iskustva, hiljade presvučenih sjedišta i komada namještaja.“</p></div>
+
+<section><div class="wrap">
+  <div class="sec-title"><span>Materijali</span><h2>Po vašoj želji</h2></div>
+  <div class="mats">
+    <div><h3>Prava koža</h3><p>Plemenita i dugotrajna.</p></div>
+    <div><h3>Eko koža</h3><p>Praktična i povoljnija.</p></div>
+    <div><h3>Platno</h3><p>Bogat izbor boja.</p></div>
+    <div><h3>I mnogi drugi</h3><p>Prema namjeni.</p></div>
+  </div>
+</div></section>
+
+<section id="kontakt" style="padding-top:20px"><div class="wrap contact">
+  <div><h2>Svratite ili nas pozovite</h2><p>Pošaljite fotografiju na Viber ili WhatsApp i dobićete okvirnu ponudu.</p><a class="btn fill" href="tel:+38700000000">Pozovite</a></div>
+  <dl>
+    <dt>Telefon</dt><dd>+387 00 000 000</dd>
+    <dt>Adresa</dt><dd>Ulica i broj, Grad</dd>
+    <dt>Radno vrijeme</dt><dd>Pon–Pet 08–16h<br>Sub 08–13h</dd>
+  </dl>
+</div></section>
+<footer>© Tapetarija [Naziv] · 40 godina iskustva</footer>
+</body>
+</html>
