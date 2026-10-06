@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tapetarija – presvlačenje auto sjedišta i namještaja | 40 godina iskustva</title>
+  <meta name="description" content="Presvlačenje kožnih i platnenih auto sjedišta, volana, ručica mjenjača, sjedišta za motore, glisere i brodove. Presvlačenje namještaja, ugostiteljskih objekata i ljetnih bašti. 40 godina iskustva.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf7f2;
+      --surface: #ffffff;
+      --text: #2a211b;
+      --muted: #6b5d52;
+      --leather: #7a4a2a;
+      --leather-dark: #4a2c18;
+      --gold: #c79a4b;
+      --border: #e6ddd2;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.2; }
+    a { color: inherit; }
+    .container { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(42, 33, 27, 0.95);
+      backdrop-filter: blur(6px);
+      color: #fff;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-family: "Playfair Display", serif; font-size: 1.35rem; text-decoration: none; }
+    .logo span { color: var(--gold); }
+    .nav ul { display: flex; gap: 28px; list-style: none; }
+    .nav ul a { text-decoration: none; font-size: .95rem; opacity: .85; }
+    .nav ul a:hover { opacity: 1; color: var(--gold); }
+    .nav .call { background: var(--gold); color: var(--leather-dark); padding: 8px 16px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+    .menu-btn { display: none; background: none; border: 0; color: #fff; font-size: 1.6rem; cursor: pointer; }
+
+    /* Hero */
+    .hero {
+      color: #fff;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(199,154,75,.25), transparent 50%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.025) 0 2px, transparent 2px 6px),
+        linear-gradient(135deg, var(--leather-dark), var(--leather));
+      padding: 110px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 18px;
+      border: 2px dashed rgba(199,154,75,.35); border-radius: 22px; pointer-events: none;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      padding: 6px 14px; border-radius: 999px; font-size: .9rem; margin-bottom: 22px;
+    }
+    .badge b { color: var(--gold); font-size: 1.05rem; }
+    .hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); max-width: 780px; margin-bottom: 20px; }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p { font-size: 1.15rem; max-width: 620px; opacity: .9; margin-bottom: 34px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      display: inline-block; padding: 14px 26px; border-radius: 999px;
+      font-weight: 600; text-decoration: none; transition: transform .15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--gold); color: var(--leather-dark); }
+    .btn-outline { border: 2px solid rgba(255,255,255,.6); color: #fff; }
+
+    /* Sections */
+    section { padding: 90px 0; }
+    .section-head { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+    .section-head .eyebrow { color: var(--leather); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+    .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin: 8px 0 12px; }
+    .section-head p { color: var(--muted); }
+
+    /* Stats */
+    .stats { background: var(--surface); border-bottom: 1px solid var(--border); padding: 40px 0; }
+    .stats .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+    .stat b { display: block; font-family: "Playfair Display", serif; font-size: 2.2rem; color: var(--leather); }
+    .stat span { color: var(--muted); font-size: .95rem; }
+
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 32px 28px; transition: box-shadow .2s, transform .2s;
+    }
+    .card:hover { box-shadow: 0 14px 34px rgba(74,44,24,.1); transform: translateY(-3px); }
+    .icon {
+      width: 56px; height: 56px; border-radius: 12px; display: grid; place-items: center;
+      background: #f3e8d8; color: var(--leather); margin-bottom: 20px;
+    }
+    .icon svg { width: 30px; height: 30px; }
+    .card h3 { font-size: 1.35rem; margin-bottom: 14px; }
+    .card ul { list-style: none; }
+    .card li { padding: 6px 0 6px 26px; position: relative; color: var(--muted); }
+    .card li::before {
+      content: ""; position: absolute; left: 0; top: 14px; width: 12px; height: 2px; background: var(--gold);
+    }
+
+    /* Materials */
+    .materials { background: var(--surface); border-block: 1px solid var(--border); }
+    .mat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .mat {
+      border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--bg);
+    }
+    .swatch { height: 130px; }
+    .sw-leather { background: radial-gradient(circle at 30% 30%, #a0643a, #5a3219); }
+    .sw-eco { background: linear-gradient(135deg, #2b2b2b, #4a4a4a); }
+    .sw-fabric {
+      background-color: #8a8f7a;
+      background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.08) 0 2px, transparent 2px 4px),
+                        repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 2px, transparent 2px 4px);
+    }
+    .sw-other { background: linear-gradient(135deg, #1f3b57, #7a2e2e, #c79a4b); }
+    .mat div:last-child { padding: 18px 20px; }
+    .mat h3 { font-size: 1.15rem; margin-bottom: 4px; }
+    .mat p { color: var(--muted); font-size: .92rem; }
+    .note {
+      margin-top: 36px; display: flex; gap: 16px; align-items: center;
+      background: #f3e8d8; border-radius: var(--radius); padding: 22px 26px;
+    }
+    .note svg { flex: none; width: 34px; height: 34px; color: var(--leather); }
+
+    /* About */
+    .about .container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+    .about-visual {
+      aspect-ratio: 1; border-radius: 24px; color: #fff; display: grid; place-items: center; text-align: center;
+      background: linear-gradient(135deg, var(--leather-dark), var(--leather));
+      position: relative;
+    }
+    .about-visual::after { content: ""; position: absolute; inset: 14px; border: 2px dashed rgba(199,154,75,.5); border-radius: 16px; }
+    .about-visual b { display: block; font-family: "Playfair Display", serif; font-size: 6rem; color: var(--gold); line-height: 1; }
+    .about-visual span { font-size: 1.2rem; letter-spacing: .05em; }
+    .about h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 18px; }
+    .about p { color: var(--muted); margin-bottom: 16px; }
+    .checks { list-style: none; margin-top: 22px; display: grid; gap: 10px; }
+    .checks li { display: flex; gap: 10px; align-items: flex-start; }
+    .checks li::before { content: "✓"; color: var(--leather); font-weight: 700; }
+
+    /* Contact */
+    .contact { background: var(--leather-dark); color: #fff; }
+    .contact .section-head p { color: rgba(255,255,255,.75); }
+    .contact .section-head .eyebrow { color: var(--gold); }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .contact-card {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius); padding: 28px; text-align: center; text-decoration: none;
+      transition: background .2s;
+    }
+    a.contact-card:hover { background: rgba(255,255,255,.12); }
+    .contact-card svg { width: 32px; height: 32px; color: var(--gold); margin-bottom: 12px; }
+    .contact-card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .contact-card p { opacity: .8; }
+    .contact .btns { justify-content: center; margin-top: 40px; }
+
+    footer { background: #1c1612; color: rgba(255,255,255,.6); text-align: center; padding: 26px 0; font-size: .9rem; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .services-grid, .contact-grid { grid-template-columns: 1fr; }
+      .mat-grid, .stats .container { grid-template-columns: repeat(2, 1fr); }
+      .about .container { grid-template-columns: 1fr; gap: 36px; }
+      .about-visual { max-width: 320px; margin: 0 auto; }
+      .menu-btn { display: block; }
+      .nav ul {
+        display: none; position: absolute; top: 64px; left: 0; right: 0;
+        flex-direction: column; gap: 0; background: #2a211b; padding: 10px 16px 20px;
+      }
+      .nav ul.open { display: flex; }
+      .nav ul a { display: block; padding: 12px 0; }
+      .nav .call { display: none; }
+      section { padding: 64px 0; }
+      .hero { padding: 80px 0 90px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <!-- TODO: upisati pravi naziv radnje -->
+    <a href="#" class="logo">Tapetarija <span>[Naziv]</span></a>
+    <button class="menu-btn" aria-label="Meni" onclick="document.querySelector('.nav ul').classList.toggle('open')">☰</button>
+    <ul>
+      <li><a href="#usluge">Usluge</a></li>
+      <li><a href="#materijali">Materijali</a></li>
+      <li><a href="#o-nama">O nama</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="tel:+38700000000" class="call">Pozovite nas</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="badge"><b>40</b> godina iskustva u tapetarskom zanatu</div>
+    <h1>Vratite sjaj vašem <em>vozilu</em>, plovilu i <em>namještaju</em></h1>
+    <p>Stručno presvlačenje auto sjedišta, volana, sjedišta za motore, glisere i brodove, kao i kompletnog namještaja za domove, firme i ugostiteljske objekte.</p>
+    <div class="btns">
+      <a href="#kontakt" class="btn btn-primary">Zatražite ponudu</a>
+      <a href="#usluge" class="btn btn-outline">Pogledajte usluge</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container">
+    <div class="stat"><b>40+</b><span>godina iskustva</span></div>
+    <div class="stat"><b>Koža</b><span>prava i eko koža</span></div>
+    <div class="stat"><b>Sve vrste</b><span>auto, moto i nautika</span></div>
+    <div class="stat"><b>Po mjeri</b><span>materijal po vašoj želji</span></div>
+  </div>
+</div>
+
+<section id="usluge">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Usluge</div>
+      <h2>Šta radimo</h2>
+      <p>Od jednog volana do kompletnog inventara restorana – svaki posao radimo ručno, pažljivo i sa garancijom kvaliteta.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1.5-6.5A2 2 0 0 0 15.6 9H8.4a2 2 0 0 0-1.9 1.5Z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M3 13h2M19 13h2"/></svg>
+        </div>
+        <h3>Vozila</h3>
+        <ul>
+          <li>Kožna i platnena auto sjedišta</li>
+          <li>Kožni volani</li>
+          <li>Ručice mjenjača</li>
+          <li>Nasloni za ruke</li>
+          <li>Sjedišta za motore</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16h18l-2.5 4h-13Z"/><path d="M12 3v13"/><path d="M12 4l6 9h-6"/><path d="M12 7l-4 6h4"/></svg>
+        </div>
+        <h3>Plovila</h3>
+        <ul>
+          <li>Sjedišta za glisere</li>
+          <li>Sjedišta i ležajevi za brodove</li>
+          <li>Materijali otporni na vodu i sunce</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v4H2Z"/><path d="M5 17v2M19 17v2"/></svg>
+        </div>
+        <h3>Namještaj i objekti</h3>
+        <ul>
+          <li>Presvlačenje namještaja i stolica</li>
+          <li>Kompletan inventar ugostiteljskih objekata</li>
+          <li>Ljetne bašte</li>
+          <li>Namještaj u firmama i kancelarijama</li>
+          <li>Preuređenje i obnova</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+      <div><strong>Zamjena dotrajale spužve</strong> – osim presvlake, mijenjamo i ulegnutu ili dotrajalu spužvu, pa sjedište ili komad namještaja dobija udobnost kao nov.</div>
+    </div>
+  </div>
+</section>
+
+<section id="materijali" class="materials">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Materijali</div>
+      <h2>Materijal po vašoj želji</h2>
+      <p>Pomoći ćemo vam da izaberete materijal i boju koji najbolje odgovaraju namjeni i budžetu.</p>
+    </div>
+    <div class="mat-grid">
+      <div class="mat"><div class="swatch sw-leather"></div><div><h3>Prava koža</h3><p>Luksuzan izgled, dugotrajnost i prepoznatljiv osjećaj.</p></div></div>
+      <div class="mat"><div class="swatch sw-eco"></div><div><h3>Eko koža</h3><p>Izgled kože po povoljnijoj cijeni, lako održavanje.</p></div></div>
+      <div class="mat"><div class="swatch sw-fabric"></div><div><h3>Platno</h3><p>Prozračno, udobno i dostupno u mnogo boja i dezena.</p></div></div>
+      <div class="mat"><div class="swatch sw-other"></div><div><h3>I mnogi drugi</h3><p>Alkantara, štof, nautički materijali i još mnogo toga.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="o-nama" class="about">
+  <div class="container">
+    <div class="about-visual"><div><b>40</b><span>godina zanata</span></div></div>
+    <div>
+      <h2>Iskustvo koje se vidi u svakom šavu</h2>
+      <p>Već 40 godina presvlačimo sjedišta i namještaj za naše mušterije. Za to vrijeme prošli smo kroz hiljade vozila, plovila i komada namještaja – od jednog volana do kompletnog opremanja restorana i ljetnih bašti.</p>
+      <p>Svaki posao radimo kao da je za nas: precizno krojenje, kvalitetni materijali i čvrsti šavovi koji traju godinama.</p>
+      <ul class="checks">
+        <li>Besplatan dogovor i procjena</li>
+        <li>Veliki izbor materijala i boja</li>
+        <li>Rad za fizička lica, firme i ugostitelje</li>
+        <li>Pouzdani rokovi i poštena cijena</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Kontakt</div>
+      <h2>Javite nam se</h2>
+      <p>Pošaljite nam fotografiju onoga što želite presvući i dobićete okvirnu ponudu.</p>
+    </div>
+    <!-- TODO: upisati pravi telefon, adresu i radno vrijeme -->
+    <div class="contact-grid">
+      <a class="contact-card" href="tel:+38700000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
+        <h3>Telefon</h3>
+        <p>+387 00 000 000</p>
+      </a>
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>Adresa</h3>
+        <p>Ulica i broj, Grad</p>
+      </div>
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h3>Radno vrijeme</h3>
+        <p>Pon–Pet: 08–16h<br>Sub: 08–13h</p>
+      </div>
+    </div>
+    <div class="btns">
+      <a href="https://wa.me/38700000000" class="btn btn-primary">Pišite na WhatsApp</a>
+      <a href="viber://chat?number=%2B38700000000" class="btn btn-outline">Pišite na Viber</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© <span id="year"></span> Tapetarija [Naziv] · Presvlačenje auto sjedišta i namještaja · 40 godina iskustva</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('.nav ul a').forEach(a =>
+    a.addEventListener('click', () => document.querySelector('.nav ul').classList.remove('open')));
+</script>
+</body>
+</html>
