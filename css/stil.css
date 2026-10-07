@@ -1,0 +1,185 @@
+/* Tapetarija – zajednički stil za sve stranice */
+:root{--bg:#141210;--surface:#1d1a17;--line:#2f2a25;--text:#f3ede6;--muted:#a89f94;--accent:#c8935a;--header:72px;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header)}
+html.lb-otvoren{overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",system-ui,sans-serif;font-size:16px;line-height:1.6}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.1;text-wrap:balance}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+
+/* Zaglavlje – prozirno na vrhu, tamno kad se skrola */
+header{position:fixed;inset:0 0 auto;z-index:20;padding-top:env(safe-area-inset-top,0px);transition:background .3s,box-shadow .3s}
+header.scrolled,header.open{background:rgba(20,18,16,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
+nav{display:flex;align-items:center;gap:20px;height:84px;transition:height .3s}
+header.scrolled nav{height:var(--header)}
+.logo{font-family:"DM Serif Display",Georgia,serif;font-size:1.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.logo span{color:var(--accent)}
+.menu{display:flex;gap:30px;list-style:none;font-size:.95rem;margin-left:auto}
+.menu a{opacity:.85}.menu a:hover{opacity:1;color:var(--accent)}
+.tel{background:var(--accent);color:#1a1209;padding:10px 20px;border-radius:999px;font-weight:700;white-space:nowrap}
+.burger{display:none;background:none;border:0;color:var(--text);width:44px;height:44px;cursor:pointer;flex:none}
+.burger svg{width:26px;height:26px}
+.burger .i-close,header.open .burger .i-open{display:none}
+header.open .burger .i-close{display:block}
+
+/* Naslovni dio početne stranice */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;position:relative;padding:0;
+  background:linear-gradient(90deg,rgba(20,18,16,.95) 0%,rgba(20,18,16,.75) 45%,rgba(20,18,16,.15) 100%),url(../images/hero-auto-koza.jpg) center/cover}
+.hero .wrap{padding-top:84px}
+.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;font-weight:700}
+.hero h1{font-size:clamp(2.6rem,6vw,5rem);max-width:720px;margin:18px 0 22px}
+.hero h1 em{color:var(--accent)}
+.hero p{max-width:540px;color:#d6cec4;font-size:1.12rem}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.btn{padding:15px 28px;border-radius:999px;font-weight:700;display:inline-block}
+.btn-a{background:var(--accent);color:#1a1209}
+.btn-b{border:1.5px solid rgba(255,255,255,.5)}
+.stamp{position:absolute;right:6%;bottom:9%;width:150px;height:150px;border-radius:50%;
+  border:1.5px dashed var(--accent);display:grid;place-items:center;text-align:center;background:rgba(20,18,16,.6);backdrop-filter:blur(4px)}
+.stamp b{font-family:"DM Serif Display",Georgia,serif;font-size:3.2rem;line-height:.9;color:var(--accent);display:block}
+.stamp small{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase}
+
+section{padding:100px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.head h2{font-size:clamp(2.2rem,4.5vw,3.4rem)}
+.head p{color:var(--muted);max-width:430px}
+
+/* Mozaik kategorija – svaka pločica vodi na stranicu kategorije */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;gap:14px}
+.tile{position:relative;overflow:hidden;border-radius:16px;isolation:isolate}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;z-index:-2}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.85));z-index:-1}
+.tile:hover img{transform:scale(1.06)}
+.tile .txt{position:absolute;left:22px;right:22px;bottom:20px}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(200,147,90,.9);color:#1a1209;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+.tile h3{font-size:1.6rem}
+.tile p{color:#ddd3c8;font-size:.92rem;margin-top:4px}
+.big h3{font-size:2.4rem}
+.t-auto{grid-column:1/3;grid-row:1/3}
+.t-rest{grid-column:1/3;grid-row:3/5}
+.t-nam{grid-column:3/5}
+.go{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(20,18,16,.55);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(4px);transition:background .2s,color .2s,transform .2s}
+.go svg{width:18px;height:18px}
+.tile:hover .go,.tile:focus-visible .go{background:var(--accent);border-color:var(--accent);color:#1a1209;transform:translateX(3px)}
+
+/* Materijali */
+.materijali{background:var(--surface)}
+.mats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mat{border-radius:16px;overflow:hidden;background:var(--bg);border:1px solid var(--line)}
+.mat img{width:100%;height:190px;object-fit:cover}
+.mat div{padding:18px 20px}
+.mat h3{font-size:1.45rem}
+.mat p{color:var(--muted);font-size:.93rem}
+
+/* O nama – 40 godina */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-img{border-radius:20px;overflow:hidden;aspect-ratio:4/5;position:relative;max-width:100%}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-img .yrs{position:absolute;left:24px;bottom:24px;background:var(--bg);border-radius:14px;padding:16px 22px}
+.about-img .yrs b{font-family:"DM Serif Display",Georgia,serif;font-size:2.8rem;color:var(--accent);line-height:1}
+.about h2{font-size:clamp(2rem,4vw,3rem);margin:14px 0 20px}
+.about p{color:var(--muted);margin-bottom:16px}
+.foam{margin-top:28px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:20px 24px;background:var(--surface)}
+.foam b{display:block;font-size:1.1rem;margin-bottom:4px}
+
+/* Kontakt */
+.contact{background:linear-gradient(rgba(20,18,16,.88),rgba(20,18,16,.92)),url(../images/hero-restoran.jpg) center/cover;text-align:center}
+.contact h2{font-size:clamp(2.2rem,5vw,3.8rem)}
+.contact .lead{color:#d6cec4;margin:14px auto 30px;max-width:560px}
+.phone{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);color:var(--accent);display:inline-block;margin-bottom:26px}
+.contact .btns{justify-content:center;margin:0 0 50px}
+.info{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:640px;margin:0 auto}
+.info div{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(20,18,16,.6)}
+.info span{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+/* Stranica kategorije – naslovni dio */
+.kat-hero{display:flex;align-items:flex-end;min-height:64vh;min-height:64svh;padding:150px 0 64px;background-size:cover;background-position:center}
+.mrvice{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:.88rem;color:#cfc6bb;margin-bottom:22px}
+.mrvice a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.35)}
+.mrvice a:hover{color:var(--accent)}
+.kat-hero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin:6px 0 16px}
+.kat-hero p{max-width:600px;color:#d6cec4;font-size:1.1rem}
+.kat-hero .btns{margin-top:28px}
+
+/* Galerija radova */
+.galerija{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:14px}
+.rad{position:relative;display:block;width:100%;aspect-ratio:4/3;border:0;padding:0;border-radius:14px;overflow:hidden;
+  cursor:zoom-in;background:var(--surface);color:var(--text);font:inherit;text-align:left}
+.rad img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.rad:hover img{transform:scale(1.04)}
+.rad-opis{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 12px;background:linear-gradient(transparent,rgba(0,0,0,.82));font-size:.93rem}
+.rad.par{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bg)}
+.pola{position:relative;min-width:0;overflow:hidden}
+.znak{position:absolute;top:10px;left:10px;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 9px;border-radius:999px;background:rgba(20,18,16,.82);color:var(--text)}
+.znak.primjer{left:auto;right:10px;color:var(--accent);border:1px solid rgba(200,147,90,.6)}
+.prazno{border:1.5px dashed var(--line);border-radius:16px;padding:52px 24px;text-align:center;color:var(--muted)}
+.prazno svg{width:42px;height:42px;color:var(--accent);margin:0 auto 14px}
+.prazno b{display:block;color:var(--text);font-size:1.15rem;margin-bottom:6px}
+.napomena{margin-top:18px;color:var(--muted);font-size:.9rem}
+
+/* Ostale kategorije */
+.ostale-sekcija{background:var(--surface)}
+.ostale{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ostala{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;isolation:isolate;max-width:100%}
+.ostala img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .5s ease}
+.ostala::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.85));z-index:-1}
+.ostala:hover img{transform:scale(1.06)}
+.ostala span{position:absolute;left:14px;right:14px;bottom:10px;font-family:"DM Serif Display",Georgia,serif;font-size:1.2rem;line-height:1.15}
+
+/* Uvećan prikaz fotografije */
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(10,9,8,.97);display:flex;flex-direction:column;
+  padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.lb-traka{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 16px;color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums}
+.lb-scena{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 76px}
+.lb-scena figure{position:relative;height:100%;min-width:0;display:flex;align-items:center;justify-content:center}
+.lb-scena img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+.lb-scena.par figure{flex:1}
+.lb-opis{text-align:center;padding:14px 16px 20px;min-height:58px}
+.lb-btn{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--text);
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)}
+.lb-btn:hover{background:var(--accent);border-color:var(--accent);color:#1a1209}
+.lb-btn svg{width:22px;height:22px}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb-prev{left:16px}.lb-next{right:16px}
+
+@media(max-width:900px){
+  nav{gap:10px}
+  .logo{font-size:1.3rem}
+  .tel{padding:9px 16px;font-size:.92rem}
+  .burger{display:grid;place-items:center;margin-right:-8px}
+  .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;
+    background:var(--bg);border-top:1px solid var(--line);padding:6px 16px 18px}
+  .menu li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem;opacity:1}
+  header.open .menu{display:flex}
+  .eyebrow{letter-spacing:.12em;font-size:.72rem}
+  .stamp{width:110px;height:110px;right:16px;bottom:24px}.stamp b{font-size:2.3rem}
+  .bento{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+  .t-auto,.t-rest,.t-nam{grid-column:1/3;grid-row:auto}
+  .t-auto,.t-rest{grid-row:span 2}
+  .big h3{font-size:1.9rem}.tile h3{font-size:1.3rem}.tile p{display:none}.big p{display:block}
+  .go{width:34px;height:34px;top:10px;right:10px}.go svg{width:15px;height:15px}
+  .about .wrap{grid-template-columns:1fr;gap:40px}
+  .mats{grid-template-columns:1fr 1fr}.mat img{height:130px}
+  .info{grid-template-columns:1fr}
+  section{padding:70px 0}
+  .kat-hero{min-height:58vh;min-height:58svh;padding:130px 0 44px}
+  .ostale{grid-template-columns:1fr 1fr}
+  .lb-scena{padding:0 8px}
+  .lb-scena.par{flex-direction:column}
+  .lb-scena.par figure{height:auto;flex:1;min-height:0;width:100%}
+  .lb-prev,.lb-next{top:auto;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:none;width:44px;height:44px}
+  .lb-opis{padding:14px 70px 22px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .tile img,.rad img,.ostala img{transition:none}
+  .tile:hover img,.rad:hover img,.ostala:hover img{transform:none}
+}

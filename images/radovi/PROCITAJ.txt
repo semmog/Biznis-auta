@@ -1,0 +1,10 @@
+Ovdje stavite fotografije vaših završenih radova (npr. golf-kozna-sjedista.jpg).
+
+Ime fajla neka bude bez razmaka i bez slova č, ć, š, đ, ž.
+Zatim fotografiju upišite u fajl js/radovi.js, u listu odgovarajuće kategorije:
+
+  { slika: "golf-kozna-sjedista.jpg", opis: "VW Golf – kožna sjedišta" },
+
+Za par "prije i poslije":
+
+  { prije: "fotelja-prije.jpg", poslije: "fotelja-poslije.jpg", opis: "Fotelja – nova koža i spužva" },

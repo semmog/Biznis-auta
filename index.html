@@ -18,126 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root{--bg:#141210;--surface:#1d1a17;--line:#2f2a25;--text:#f3ede6;--muted:#a89f94;--accent:#c8935a;--header:72px}
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:var(--header)}
-  body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6}
-  h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400;line-height:1.1}
-  a{color:inherit;text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  img{display:block;max-width:100%}
-  .wrap{width:min(1240px,100% - 32px);margin-inline:auto}
-
-  /* Zaglavlje – prozirno na vrhu, tamno kad se skrola */
-  header{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,box-shadow .3s}
-  header.scrolled,header.open{background:rgba(20,18,16,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
-  nav{display:flex;align-items:center;gap:20px;height:84px;transition:height .3s}
-  header.scrolled nav{height:var(--header)}
-  .logo{font-family:"DM Serif Display";font-size:1.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-  .logo span{color:var(--accent)}
-  .menu{display:flex;gap:30px;list-style:none;font-size:.95rem;margin-left:auto}
-  .menu a{opacity:.85}.menu a:hover{opacity:1;color:var(--accent)}
-  .tel{background:var(--accent);color:#1a1209;padding:10px 20px;border-radius:999px;font-weight:700;white-space:nowrap}
-  .burger{display:none;background:none;border:0;color:var(--text);width:44px;height:44px;cursor:pointer;flex:none}
-  .burger svg{width:26px;height:26px}
-  .burger .i-close,header.open .burger .i-open{display:none}
-  header.open .burger .i-close{display:block}
-
-  /* Naslovni dio */
-  .hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;position:relative;padding:0;
-    background:linear-gradient(90deg,rgba(20,18,16,.95) 0%,rgba(20,18,16,.75) 45%,rgba(20,18,16,.15) 100%),url(images/hero-auto-koza.jpg) center/cover}
-  .hero .wrap{padding-top:84px}
-  .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;font-weight:700}
-  .hero h1{font-size:clamp(2.6rem,6vw,5rem);max-width:720px;margin:18px 0 22px}
-  .hero h1 em{color:var(--accent)}
-  .hero p{max-width:540px;color:#d6cec4;font-size:1.12rem}
-  .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
-  .btn{padding:15px 28px;border-radius:999px;font-weight:700;display:inline-block}
-  .btn-a{background:var(--accent);color:#1a1209}
-  .btn-b{border:1.5px solid rgba(255,255,255,.5)}
-  .stamp{position:absolute;right:6%;bottom:9%;width:150px;height:150px;border-radius:50%;
-    border:1.5px dashed var(--accent);display:grid;place-items:center;text-align:center;background:rgba(20,18,16,.6);backdrop-filter:blur(4px)}
-  .stamp b{font-family:"DM Serif Display";font-size:3.2rem;line-height:.9;color:var(--accent);display:block}
-  .stamp small{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase}
-
-  section{padding:100px 0}
-  .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
-  .head h2{font-size:clamp(2.2rem,4.5vw,3.4rem)}
-  .head p{color:var(--muted);max-width:430px}
-
-  /* Mozaik kategorija */
-  .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;gap:14px}
-  .tile{position:relative;overflow:hidden;border-radius:16px;isolation:isolate}
-  .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;z-index:-2}
-  .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.85));z-index:-1}
-  .tile:hover img{transform:scale(1.06)}
-  .tile .txt{position:absolute;left:22px;right:22px;bottom:20px}
-  .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    background:rgba(200,147,90,.9);color:#1a1209;padding:4px 10px;border-radius:999px;margin-bottom:10px}
-  .tile h3{font-size:1.6rem}
-  .tile p{color:#ddd3c8;font-size:.92rem;margin-top:4px}
-  .big h3{font-size:2.4rem}
-  .t-auto{grid-column:1/3;grid-row:1/3}
-  .t-rest{grid-column:1/3;grid-row:3/5}
-  .t-nam{grid-column:3/5}
-
-  /* O nama */
-  .about{background:var(--surface)}
-  .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-  .about-img{border-radius:20px;overflow:hidden;aspect-ratio:4/5;position:relative}
-  .about-img img{width:100%;height:100%;object-fit:cover}
-  .about-img .yrs{position:absolute;left:24px;bottom:24px;background:var(--bg);border-radius:14px;padding:16px 22px}
-  .about-img .yrs b{font-family:"DM Serif Display";font-size:2.8rem;color:var(--accent);line-height:1}
-  .about h2{font-size:clamp(2rem,4vw,3rem);margin:14px 0 20px}
-  .about p{color:var(--muted);margin-bottom:16px}
-  .foam{margin-top:28px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:20px 24px;background:var(--bg)}
-  .foam b{display:block;font-size:1.1rem;margin-bottom:4px}
-
-  /* Materijali */
-  .mats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .mat{border-radius:16px;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
-  .mat img{width:100%;height:190px;object-fit:cover}
-  .mat div{padding:18px 20px}
-  .mat h3{font-size:1.45rem}
-  .mat p{color:var(--muted);font-size:.93rem}
-
-  /* Kontakt */
-  .contact{background:linear-gradient(rgba(20,18,16,.88),rgba(20,18,16,.92)),url(images/hero-restoran.jpg) center/cover;text-align:center}
-  .contact h2{font-size:clamp(2.2rem,5vw,3.8rem)}
-  .contact .lead{color:#d6cec4;margin:14px auto 30px;max-width:560px}
-  .phone{font-family:"DM Serif Display";font-size:clamp(2rem,5vw,3.2rem);color:var(--accent);display:inline-block;margin-bottom:26px}
-  .contact .btns{justify-content:center;margin:0 0 50px}
-  .info{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:640px;margin:0 auto}
-  .info div{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(20,18,16,.6)}
-  .info span{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
-  footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem}
-
-  @media(max-width:900px){
-    nav{gap:10px}
-    .logo{font-size:1.3rem}
-    .tel{padding:9px 16px;font-size:.92rem}
-    .burger{display:grid;place-items:center;margin-right:-8px}
-    .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;
-      background:var(--bg);border-top:1px solid var(--line);padding:6px 16px 18px}
-    .menu li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem;opacity:1}
-    header.open .menu{display:flex}
-    .eyebrow{letter-spacing:.12em;font-size:.72rem}
-    .stamp{width:110px;height:110px;right:16px;bottom:24px}.stamp b{font-size:2.3rem}
-    .bento{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
-    .t-auto,.t-rest,.t-nam{grid-column:1/3;grid-row:auto}
-    .t-auto,.t-rest{grid-row:span 2}
-    .big h3{font-size:1.9rem}.tile h3{font-size:1.3rem}.tile p{display:none}.big p{display:block}
-    .about .wrap{grid-template-columns:1fr;gap:40px}
-    .mats{grid-template-columns:1fr 1fr}.mat img{height:130px}
-    .info{grid-template-columns:1fr}
-    section{padding:70px 0}
-  }
-  @media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .tile img{transition:none}.tile:hover img{transform:none}
-  }
-</style>
+<link rel="stylesheet" href="css/stil.css">
 </head>
 <body>
 
@@ -146,8 +27,8 @@
     <a class="logo" href="#">Tapetarija <span>[Naziv]</span></a>
     <ul class="menu" id="menu">
       <li><a href="#kategorije">Šta presvlačimo</a></li>
-      <li><a href="#o-nama">O nama</a></li>
       <li><a href="#materijali">Materijali</a></li>
+      <li><a href="#o-nama">O nama</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
     <!-- TODO: upisati pravi broj telefona (ovdje i u dijelu Kontakt) -->
@@ -171,17 +52,27 @@
 </section>
 
 <section id="kategorije"><div class="wrap">
-  <div class="head"><div><div class="eyebrow">Šta presvlačimo</div><h2>Sve na čemu se sjedi</h2></div><p>Od jednog volana do kompletnog inventara restorana i ljetne bašte – prava koža, eko koža, platno i mnogi drugi materijali.</p></div>
+  <div class="head"><div><div class="eyebrow">Šta presvlačimo</div><h2>Sve na čemu se sjedi</h2></div><p>Kliknite na kategoriju i pogledajte naše završene radove – prava koža, eko koža, platno i mnogi drugi materijali.</p></div>
   <div class="bento">
-    <a class="tile big t-auto" href="#kontakt"><img src="images/auto-sjedista-smeda.jpg" alt="Presvučena kožna auto sjedišta"><div class="txt"><span class="tag">Vozila</span><h3>Auto sjedišta</h3><p>Kožna i platnena sjedišta i nasloni za ruke.</p></div></a>
-    <a class="tile" href="#kontakt"><img src="images/volan.jpg" alt="Kožni volan" loading="lazy"><div class="txt"><span class="tag">Vozila</span><h3>Kožni volani</h3></div></a>
-    <a class="tile" href="#kontakt"><img src="images/mjenjac.jpg" alt="Kožna ručica mjenjača" loading="lazy"><div class="txt"><span class="tag">Vozila</span><h3>Ručice mjenjača</h3></div></a>
-    <a class="tile" href="#kontakt"><img src="images/motor.jpg" alt="Sjedište motora" loading="lazy"><div class="txt"><span class="tag">Motori</span><h3>Sjedišta za motore</h3></div></a>
-    <a class="tile" href="#kontakt"><img src="images/gliser.jpg" alt="Gliser na vodi" loading="lazy"><div class="txt"><span class="tag">Plovila</span><h3>Gliseri i brodovi</h3></div></a>
-    <a class="tile big t-rest" href="#kontakt"><img src="images/restoran.jpg" alt="Restoran sa presvučenim separeima i stolicama" loading="lazy"><div class="txt"><span class="tag">Ugostiteljstvo</span><h3>Ugostiteljski objekti</h3><p>Preuređenje i presvlačenje kompletnog inventara – stolice, separei, barske stolice.</p></div></a>
-    <a class="tile t-nam" href="#kontakt"><img src="images/namjestaj-dnevna.jpg" alt="Dnevna soba sa foteljama i garniturom" loading="lazy"><div class="txt"><span class="tag">Dom</span><h3>Namještaj i stolice</h3><p>Garniture, fotelje, trpezarijske stolice.</p></div></a>
-    <a class="tile" href="#kontakt"><img src="images/basta.jpg" alt="Ljetna bašta restorana" loading="lazy"><div class="txt"><span class="tag">Ugostiteljstvo</span><h3>Ljetne bašte</h3></div></a>
-    <a class="tile" href="#kontakt"><img src="images/firma-sala.jpg" alt="Sala za sastanke sa stolicama" loading="lazy"><div class="txt"><span class="tag">Firme</span><h3>Namještaj u firmama</h3></div></a>
+    <a class="tile big t-auto" href="auto-sjedista.html"><img src="images/auto-sjedista-smeda.jpg" alt="Presvučena kožna auto sjedišta"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="txt"><span class="tag">Vozila</span><h3>Auto sjedišta</h3><p>Kožna i platnena sjedišta i nasloni za ruke.</p></div></a>
+    <a class="tile" href="volani.html"><img src="images/volan.jpg" alt="Kožni volan" loading="lazy"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="txt"><span class="tag">Vozila</span><h3>Kožni volani</h3></div></a>
+    <a class="tile" href="rucice-mjenjaca.html"><img src="images/mjenjac.jpg" alt="Kožna ručica mjenjača" loading="lazy"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="txt"><span class="tag">Vozila</span><h3>Ručice mjenjača</h3></div></a>
+    <a class="tile" href="motori.html"><img src="images/motor.jpg" alt="Sjedište motora" loading="lazy"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="txt"><span class="tag">Motori</span><h3>Sjedišta za motore</h3></div></a>
+    <a class="tile" href="gliseri-i-brodovi.html"><img src="images/gliser.jpg" alt="Gliser na vodi" loading="lazy"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="txt"><span class="tag">Plovila</span><h3>Gliseri i brodovi</h3></div></a>
+    <a class="tile big t-rest" href="ugostiteljski-objekti.html"><img src="images/restoran.jpg" alt="Restoran sa presvučenim separeima i stolicama" loading="lazy"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="txt"><span class="tag">Ugostiteljstvo</span><h3>Ugostiteljski objekti</h3><p>Preuređenje i presvlačenje kompletnog inventara – stolice, separei, barske stolice.</p></div></a>
+    <a class="tile t-nam" href="namjestaj.html"><img src="images/namjestaj-dnevna.jpg" alt="Dnevna soba sa foteljama i garniturom" loading="lazy"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="txt"><span class="tag">Dom</span><h3>Namještaj i stolice</h3><p>Garniture, fotelje, trpezarijske stolice.</p></div></a>
+    <a class="tile" href="ljetne-baste.html"><img src="images/basta.jpg" alt="Ljetna bašta restorana" loading="lazy"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="txt"><span class="tag">Ugostiteljstvo</span><h3>Ljetne bašte</h3></div></a>
+    <a class="tile" href="firme.html"><img src="images/firma-sala.jpg" alt="Sala za sastanke sa stolicama" loading="lazy"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="txt"><span class="tag">Firme</span><h3>Namještaj u firmama</h3></div></a>
+  </div>
+</div></section>
+
+<section class="materijali" id="materijali"><div class="wrap">
+  <div class="head"><div><div class="eyebrow">Materijali</div><h2>Materijal po vašoj želji</h2></div><p>Pomoći ćemo vam da izaberete materijal i boju prema namjeni i budžetu.</p></div>
+  <div class="mats">
+    <div class="mat"><img src="images/mat-koza.jpg" alt="Prava koža" loading="lazy"><div><h3>Prava koža</h3><p>Luksuzan izgled i dugotrajnost.</p></div></div>
+    <div class="mat"><img src="images/mat-eko-koza.jpg" alt="Eko koža" loading="lazy"><div><h3>Eko koža</h3><p>Izgled kože, lako održavanje.</p></div></div>
+    <div class="mat"><img src="images/mat-platno.jpg" alt="Platno" loading="lazy"><div><h3>Platno</h3><p>Mnogo boja i dezena.</p></div></div>
+    <div class="mat"><img src="images/restoran-stolice.jpg" alt="Stolice u različitim materijalima i bojama" loading="lazy"><div><h3>I mnogi drugi</h3><p>Pitajte nas za vašu ideju.</p></div></div>
   </div>
 </div></section>
 
@@ -194,16 +85,6 @@
     <p>Već 40 godina presvlačimo sjedišta i namještaj. Radimo za vlasnike automobila, motora i plovila, za domaćinstva, firme i ugostiteljske objekte.</p>
     <p>Svaki posao radimo ručno i pažljivo, od krojenja do posljednjeg šava.</p>
     <div class="foam"><b>Zamjena dotrajale spužve</b>Osim presvlake mijenjamo i ulegnutu ili dotrajalu spužvu, pa je sjedište ponovo udobno kao novo.</div>
-  </div>
-</div></section>
-
-<section id="materijali"><div class="wrap">
-  <div class="head"><div><div class="eyebrow">Materijali</div><h2>Materijal po vašoj želji</h2></div><p>Pomoći ćemo vam da izaberete materijal i boju prema namjeni i budžetu.</p></div>
-  <div class="mats">
-    <div class="mat"><img src="images/mat-koza.jpg" alt="Prava koža" loading="lazy"><div><h3>Prava koža</h3><p>Luksuzan izgled i dugotrajnost.</p></div></div>
-    <div class="mat"><img src="images/mat-eko-koza.jpg" alt="Eko koža" loading="lazy"><div><h3>Eko koža</h3><p>Izgled kože, lako održavanje.</p></div></div>
-    <div class="mat"><img src="images/mat-platno.jpg" alt="Platno" loading="lazy"><div><h3>Platno</h3><p>Mnogo boja i dezena.</p></div></div>
-    <div class="mat"><img src="images/restoran-stolice.jpg" alt="Stolice u različitim materijalima i bojama" loading="lazy"><div><h3>I mnogi drugi</h3><p>Pitajte nas za vašu ideju.</p></div></div>
   </div>
 </div></section>
 
@@ -223,24 +104,6 @@
 
 <footer>© <span id="year">2026</span> Tapetarija [Naziv] · 40 godina iskustva</footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Zaglavlje dobija tamnu pozadinu kad se skrola
-  const header = document.getElementById('top');
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  // Meni na mobitelu
-  const burger = header.querySelector('.burger');
-  const setOpen = open => {
-    header.classList.toggle('open', open);
-    burger.setAttribute('aria-expanded', open);
-    burger.setAttribute('aria-label', open ? 'Zatvori meni' : 'Otvori meni');
-  };
-  burger.addEventListener('click', () => setOpen(!header.classList.contains('open')));
-  header.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-</script>
+<script src="js/sajt.js"></script>
 </body>
 </html>

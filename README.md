@@ -5,6 +5,31 @@ Jednostavna statička stranica (`index.html`), bez instalacije i alata. Otvori s
 **Izabran je dizajn 4 (foto mozaik)** – on je sada glavna stranica `index.html`, dopunjen menijem za mobitel
 i zaglavljem koje ostaje na vrhu (dugme „Pozovite“ je uvijek vidljivo).
 
+## Stranice
+| Fajl | Šta je |
+|------|--------|
+| `index.html` | početna: naslov, kategorije, materijali, o nama (40 godina), kontakt |
+| `auto-sjedista.html`, `volani.html`, `rucice-mjenjaca.html`, `motori.html`, `gliseri-i-brodovi.html`, `ugostiteljski-objekti.html`, `namjestaj.html`, `ljetne-baste.html`, `firme.html` | stranica svake kategorije s galerijom završenih radova – otvara se klikom na sliku kategorije na početnoj |
+| `css/stil.css` | izgled svih stranica |
+| `js/radovi.js` | **spisak fotografija završenih radova po kategorijama** |
+| `js/galerija.js`, `js/sajt.js` | galerija s uvećanim prikazom fotografije, meni i zaglavlje |
+
+## Kako dodati fotografije završenih radova
+1. Fotografiju stavite u folder `images/radovi/` (ime bez razmaka i bez č, ć, š, đ, ž, npr. `golf-kozna-sjedista.jpg`).
+2. U fajlu `js/radovi.js`, u listu odgovarajuće kategorije, dodajte red:
+   ```js
+   { slika: "golf-kozna-sjedista.jpg", opis: "VW Golf – kožna sjedišta" },
+   ```
+   Za par „prije i poslije“:
+   ```js
+   { prije: "fotelja-prije.jpg", poslije: "fotelja-poslije.jpg", opis: "Fotelja – nova koža i spužva" },
+   ```
+3. Fotografija se pojavljuje na stranici te kategorije; klikom se otvara u punoj veličini.
+
+Dok kategorija nema vaših fotografija, prikazuju se privremeni primjeri (označeni natpisom „Primjer“).
+Čim dodate prvu vašu fotografiju u kategoriju, primjeri iz nje nestaju. Da se primjeri nigdje ne prikazuju,
+u `js/radovi.js` postavite `PRIKAZI_PRIMJERE = false`.
+
 ## Prijedlozi dizajna
 U folderu `prijedlozi/` je šest različitih dizajna (svaki ima i sliku ekrana):
 
@@ -20,13 +45,13 @@ U folderu `prijedlozi/` je šest različitih dizajna (svaki ima i sliku ekrana):
 Ostali prijedlozi su sačuvani za poređenje.
 
 ## Šta treba popuniti
-U `index.html` potražiti `TODO` i `[Naziv]` i zamijeniti:
+U svim `.html` fajlovima potražiti `TODO` i `[Naziv]` i zamijeniti:
 - naziv radnje
 - broj telefona (`+38700000000` – koristi se za poziv, WhatsApp i Viber)
 - adresu i radno vrijeme
 
 ## Fotografije
-Fotografije u folderu `images/` su privremene, besplatne fotografije sa [Pexels](https://www.pexels.com)
+Fotografije u folderu `images/` (i `images/primjeri/`) su privremene, besplatne fotografije sa [Pexels](https://www.pexels.com)
 ([Pexels licenca](https://www.pexels.com/license/) – besplatna upotreba, i komercijalna, bez obaveznog navođenja autora).
 Najbolje je postepeno ih zamijeniti fotografijama vlastitih radova (prije i poslije) – zadržati isto ime fajla
 i nova slika se automatski pojavljuje na stranici.
@@ -57,6 +82,27 @@ na stock fotografiji je stvarna, prepoznatljiva osoba koja nema veze s radnjom.
 | `mat-koza.jpg` | [pexels.com/photo/worn-out-chair-upholstery-with-soft-texture-5499508](https://www.pexels.com/photo/worn-out-chair-upholstery-with-soft-texture-5499508/) |
 | `mat-eko-koza.jpg` | [pexels.com/photo/black-leather-fabric-in-close-up-photography-4611617](https://www.pexels.com/photo/black-leather-fabric-in-close-up-photography-4611617/) |
 | `mat-platno.jpg` | [pexels.com/photo/a-texture-of-a-fabric-7598534](https://www.pexels.com/photo/a-texture-of-a-fabric-7598534/) |
+| `primjeri/auto-1.jpg` | [pexels.com/photo/beige-leather-seat-upholstery-of-a-car-12173186](https://www.pexels.com/photo/beige-leather-seat-upholstery-of-a-car-12173186/) |
+| `primjeri/auto-2.jpg` | [pexels.com/photo/brown-car-seat-cover-10196155](https://www.pexels.com/photo/brown-car-seat-cover-10196155/) |
+| `primjeri/auto-3.jpg` | [pexels.com/photo/leather-seats-in-vintage-car-18372045](https://www.pexels.com/photo/leather-seats-in-vintage-car-18372045/) |
+| `primjeri/volan-1.jpg` | [pexels.com/photo/close-up-photo-of-a-black-steering-wheel-13015295](https://www.pexels.com/photo/close-up-photo-of-a-black-steering-wheel-13015295/) |
+| `primjeri/volan-2.jpg` | [pexels.com/photo/luxurious-lexus-interior-steering-wheel-close-up-30135236](https://www.pexels.com/photo/luxurious-lexus-interior-steering-wheel-close-up-30135236/) |
+| `primjeri/volan-3.jpg` | [pexels.com/photo/car-steering-wheel-5180905](https://www.pexels.com/photo/car-steering-wheel-5180905/) |
+| `primjeri/mjenjac-1.jpg` | [pexels.com/photo/the-red-interior-of-a-mercedes-benz-280sl-8310750](https://www.pexels.com/photo/the-red-interior-of-a-mercedes-benz-280sl-8310750/) |
+| `primjeri/mjenjac-2.jpg` | [pexels.com/photo/close-up-of-a-gear-shifter-in-a-car-5215655](https://www.pexels.com/photo/close-up-of-a-gear-shifter-in-a-car-5215655/) |
+| `primjeri/mjenjac-3.jpg` | [pexels.com/photo/interior-of-a-modern-car-17078798](https://www.pexels.com/photo/interior-of-a-modern-car-17078798/) |
+| `primjeri/motor-1.jpg` | [pexels.com/photo/parked-motorbike-with-soft-saddle-4857710](https://www.pexels.com/photo/parked-motorbike-with-soft-saddle-4857710/) |
+| `primjeri/motor-2.jpg` | [pexels.com/photo/close-up-photography-of-motorcycle-994156](https://www.pexels.com/photo/close-up-photography-of-motorcycle-994156/) |
+| `primjeri/brod-1.jpg` | [pexels.com/photo/luxury-interior-of-a-yacht-8356431](https://www.pexels.com/photo/luxury-interior-of-a-yacht-8356431/) |
+| `primjeri/brod-2.jpg` | [pexels.com/photo/interior-of-modern-yacht-with-cozy-couch-6510311](https://www.pexels.com/photo/interior-of-modern-yacht-with-cozy-couch-6510311/) |
+| `primjeri/restoran-1.jpg` | [pexels.com/photo/leather-chairs-in-restaurant-2193600](https://www.pexels.com/photo/leather-chairs-in-restaurant-2193600/) |
+| `primjeri/restoran-2.jpg` | [pexels.com/photo/cozy-cafe-interior-with-modern-booth-seating-30951017](https://www.pexels.com/photo/cozy-cafe-interior-with-modern-booth-seating-30951017/) |
+| `primjeri/namjestaj-1.jpg` | [pexels.com/photo/sofa-and-table-with-chairs-11701157](https://www.pexels.com/photo/sofa-and-table-with-chairs-11701157/) |
+| `primjeri/namjestaj-2.jpg` | [pexels.com/photo/stylish-living-room-with-sofa-and-armchair-5490341](https://www.pexels.com/photo/stylish-living-room-with-sofa-and-armchair-5490341/) |
+| `primjeri/basta-1.jpg` | [pexels.com/photo/cafe-terrace-with-chairs-near-table-7524476](https://www.pexels.com/photo/cafe-terrace-with-chairs-near-table-7524476/) |
+| `primjeri/basta-2.jpg` | [pexels.com/photo/charming-parisian-street-cafe-with-cozy-outdoor-seating-30811019](https://www.pexels.com/photo/charming-parisian-street-cafe-with-cozy-outdoor-seating-30811019/) |
+| `primjeri/firma-1.jpg` | [pexels.com/photo/light-room-with-table-and-chairs-near-whiteboard-6180740](https://www.pexels.com/photo/light-room-with-table-and-chairs-near-whiteboard-6180740/) |
+| `primjeri/firma-2.jpg` | [pexels.com/photo/chairs-conference-room-corporate-indoors-236730](https://www.pexels.com/photo/chairs-conference-room-corporate-indoors-236730/) |
 
 ## Objavljivanje
 Najlakše besplatno: GitHub Pages (Settings → Pages → Branch: `main`, folder `/`),
