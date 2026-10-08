@@ -33,17 +33,27 @@
 </header>
 
 <main>
-<section class="kat-hero" style="background-image:linear-gradient(180deg,rgba(20,18,16,.55) 0%,rgba(20,18,16,.2) 35%,rgba(20,18,16,.96) 100%),linear-gradient(90deg,rgba(20,18,16,.85) 0%,rgba(20,18,16,.15) 75%),url(images/motor.jpg)">
+<section class="kat-uvod">
   <div class="wrap">
-    <nav class="mrvice" aria-label="Putanja"><a href="index.html">Početna</a><span aria-hidden="true">/</span><a href="index.html#kategorije">Šta presvlačimo</a><span aria-hidden="true">/</span><span aria-current="page">Sjedišta za motore</span></nav>
+    <a class="nazad" href="index.html#kategorije"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Sve kategorije</a>
     <span class="tag">Motori</span>
     <h1>Sjedišta za motore</h1>
-    <p>Presvlačimo sjedišta za motore. Po potrebi mijenjamo i dotrajalu spužvu.</p>
-    <div class="btns"><a class="btn btn-a" href="#radovi">Pogledajte radove</a><a class="btn btn-b" href="#kontakt">Zatražite ponudu</a></div>
+    <p>Presvlačimo sjedišta za motore. Po potrebi mijenjamo i dotrajalu spužvu. <a class="link-ponuda" href="#kontakt">Zatražite ponudu&nbsp;→</a></p>
+    <nav class="cipovi" aria-label="Kategorije">
+      <a class="cip" href="auto-sjedista.html"><img src="images/auto-sjedista-smeda.jpg" alt="">Auto sjedišta</a>
+      <a class="cip" href="volani.html"><img src="images/volan.jpg" alt="">Volani</a>
+      <a class="cip" href="rucice-mjenjaca.html"><img src="images/mjenjac.jpg" alt="">Ručice mjenjača</a>
+      <a class="cip on" href="motori.html" aria-current="page"><img src="images/motor.jpg" alt="">Motori</a>
+      <a class="cip" href="gliseri-i-brodovi.html"><img src="images/gliser.jpg" alt="">Gliseri i brodovi</a>
+      <a class="cip" href="ugostiteljski-objekti.html"><img src="images/restoran.jpg" alt="">Ugostiteljski objekti</a>
+      <a class="cip" href="namjestaj.html"><img src="images/namjestaj-dnevna.jpg" alt="">Namještaj</a>
+      <a class="cip" href="ljetne-baste.html"><img src="images/basta.jpg" alt="">Ljetne bašte</a>
+      <a class="cip" href="firme.html"><img src="images/firma-sala.jpg" alt="">Firme</a>
+    </nav>
   </div>
 </section>
 
-<section id="radovi"><div class="wrap">
+<section class="radovi-sekcija" id="radovi"><div class="wrap">
   <div class="head"><div><div class="eyebrow">Naši radovi</div><h2>Završeni radovi</h2></div><p>Kliknite na fotografiju da je vidite u punoj veličini.</p></div>
   <!-- Fotografije radova se dodaju u fajlu js/radovi.js -->
   <div class="galerija" id="galerija"></div>

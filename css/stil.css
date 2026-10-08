@@ -99,14 +99,24 @@ section{padding:100px 0}
 .info span{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
 footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem}
 
-/* Stranica kategorije – naslovni dio */
-.kat-hero{display:flex;align-items:flex-end;min-height:64vh;min-height:64svh;padding:150px 0 64px;background-size:cover;background-position:center}
-.mrvice{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:.88rem;color:#cfc6bb;margin-bottom:22px}
-.mrvice a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.35)}
-.mrvice a:hover{color:var(--accent)}
-.kat-hero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin:6px 0 16px}
-.kat-hero p{max-width:600px;color:#d6cec4;font-size:1.1rem}
-.kat-hero .btns{margin-top:28px}
+/* Stranica kategorije – kratak uvod bez velike slike, odmah ispod galerija */
+.kat-uvod{padding:124px 0 0}
+.nazad{display:flex;width:fit-content;align-items:center;gap:8px;color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.nazad svg{width:18px;height:18px}
+.nazad:hover{color:var(--accent)}
+.kat-uvod h1{font-size:clamp(2.3rem,5vw,3.8rem);margin:2px 0 14px}
+.kat-uvod p{max-width:660px;color:var(--muted);font-size:1.05rem}
+.link-ponuda{color:var(--accent);font-weight:700;white-space:nowrap}
+.link-ponuda:hover{text-decoration:underline;text-underline-offset:3px}
+.cipovi{display:flex;flex-wrap:wrap;gap:6px;margin-top:30px;padding-bottom:30px;border-bottom:1px solid var(--line)}
+.cip{display:inline-flex;align-items:center;gap:8px;padding:4px 13px 4px 4px;border:1px solid var(--line);border-radius:999px;
+  background:var(--surface);font-size:.87rem;white-space:nowrap;flex:none;transition:border-color .2s}
+.cip img{width:28px;height:28px;border-radius:50%;object-fit:cover}
+.cip:hover{border-color:var(--accent)}
+.cip.on{background:var(--accent);border-color:var(--accent);color:#1a1209;font-weight:700}
+.radovi-sekcija{padding-top:44px}
+.radovi-sekcija .head{margin-bottom:26px}
+.radovi-sekcija .head h2{font-size:clamp(1.7rem,3vw,2.3rem)}
 
 /* Galerija radova */
 .galerija{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:14px}
@@ -170,7 +180,10 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
   .mats{grid-template-columns:1fr 1fr}.mat img{height:130px}
   .info{grid-template-columns:1fr}
   section{padding:70px 0}
-  .kat-hero{min-height:58vh;min-height:58svh;padding:130px 0 44px}
+  .kat-uvod{padding-top:106px}
+  .cipovi{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding:0 16px 24px;scrollbar-width:none}
+  .cipovi::-webkit-scrollbar{display:none}
+  .radovi-sekcija{padding-top:30px}
   .ostale{grid-template-columns:1fr 1fr}
   .lb-scena{padding:0 8px}
   .lb-scena.par{flex-direction:column}

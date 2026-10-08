@@ -3,6 +3,12 @@
   var godina = document.getElementById('year');
   if (godina) godina.textContent = new Date().getFullYear();
 
+  // Na mobitelu red kategorija se pomjera tako da je trenutna kategorija vidljiva
+  var cip = document.querySelector('.cip.on');
+  if (cip && cip.parentNode.scrollWidth > cip.parentNode.clientWidth) {
+    cip.parentNode.scrollLeft = cip.offsetLeft - cip.parentNode.offsetLeft - (cip.parentNode.clientWidth - cip.offsetWidth) / 2;
+  }
+
   // Zaglavlje dobija tamnu pozadinu kad se skrola
   var header = document.getElementById('top');
   if (!header) return;
