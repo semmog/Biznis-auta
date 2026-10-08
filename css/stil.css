@@ -106,7 +106,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
 .nazad:hover{color:var(--accent)}
 .kat-uvod h1{font-size:clamp(2.3rem,5vw,3.8rem);margin:2px 0 14px}
 .kat-uvod p{max-width:660px;color:var(--muted);font-size:1.05rem}
-.kat-dugme{margin-top:24px}
+.kat-tekst{max-width:660px}
+.kat-dugme{display:block;width:fit-content;margin:22px auto 0;padding:11px 24px;font-size:.93rem}
 .cipovi{display:flex;flex-wrap:wrap;gap:6px;margin-top:30px;padding-bottom:30px;border-bottom:1px solid var(--line)}
 .cip{display:inline-flex;align-items:center;gap:8px;padding:4px 13px 4px 4px;border:1px solid var(--line);border-radius:999px;
   background:var(--surface);font-size:.87rem;white-space:nowrap;flex:none;transition:border-color .2s}
