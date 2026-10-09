@@ -93,10 +93,7 @@ section{padding:100px 0}
 .contact h2{font-size:clamp(2.2rem,5vw,3.8rem)}
 .contact .lead{color:#d6cec4;margin:14px auto 30px;max-width:560px}
 .phone{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);color:var(--accent);display:inline-block;margin-bottom:26px}
-.contact .btns{justify-content:center;margin:0 0 50px}
-.info{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:640px;margin:0 auto}
-.info div{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(20,18,16,.6)}
-.info span{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
+.contact .btns{justify-content:center;margin:0}
 footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem}
 
 /* Stranica kategorije – kratak uvod bez velike slike, odmah ispod galerija */
@@ -178,7 +175,6 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
   .go{width:34px;height:34px;top:10px;right:10px}.go svg{width:15px;height:15px}
   .about .wrap{grid-template-columns:1fr;gap:40px}
   .mats{grid-template-columns:1fr 1fr}.mat img{height:130px}
-  .info{grid-template-columns:1fr}
   section{padding:70px 0}
   .kat-uvod{padding-top:106px}
   .cipovi{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding:0 16px 24px;scrollbar-width:none}

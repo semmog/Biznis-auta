@@ -48,7 +48,6 @@ Ostali prijedlozi su sačuvani za poređenje.
 U svim `.html` fajlovima potražiti `TODO` i `[Naziv]` i zamijeniti:
 - naziv radnje
 - broj telefona (`+38700000000` – koristi se za poziv, WhatsApp i Viber)
-- adresu i radno vrijeme
 
 ## Fotografije
 Fotografije u folderu `images/` (i `images/primjeri/`) su privremene, besplatne fotografije sa [Pexels](https://www.pexels.com)
