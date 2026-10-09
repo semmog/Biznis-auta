@@ -160,8 +160,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
 @media(max-width:900px){
   nav{gap:10px}
   .logo{font-size:1.3rem}
-  .tel{padding:9px 16px;font-size:.92rem}
-  .burger{display:grid;place-items:center;margin-right:-8px}
+  .tel{padding:9px 16px;font-size:.92rem;margin-left:auto}
+  .burger{display:grid;place-items:center;margin-right:-13px}
   .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;
     background:var(--bg);border-top:1px solid var(--line);padding:6px 16px 18px}
   .menu li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem;opacity:1}
