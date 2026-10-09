@@ -8,7 +8,7 @@ i zaglavljem koje ostaje na vrhu (dugme „Pozovite“ je uvijek vidljivo).
 ## Stranice
 | Fajl | Šta je |
 |------|--------|
-| `index.html` | početna: naslov, kategorije, materijali, o nama (40 godina), kontakt |
+| `index.html` | početna: naslov, kategorije, kontakt, materijali, o nama (40 godina) |
 | `auto-sjedista.html`, `volani.html`, `rucice-mjenjaca.html`, `motori.html`, `gliseri-i-brodovi.html`, `ugostiteljski-objekti.html`, `namjestaj.html`, `ljetne-baste.html`, `firme.html` | stranica svake kategorije s galerijom završenih radova – otvara se klikom na sliku kategorije na početnoj |
 | `css/stil.css` | izgled svih stranica |
 | `js/radovi.js` | **spisak fotografija završenih radova po kategorijama** |
