@@ -27,13 +27,16 @@ header.scrolled nav{height:var(--header)}
 header.open .burger .i-close{display:block}
 
 /* Naslovni dio početne stranice */
-.hero{min-height:100vh;min-height:100svh;display:flex;align-items:flex-start;position:relative;padding:0;
-  background:linear-gradient(90deg,rgba(20,18,16,.95) 0%,rgba(20,18,16,.75) 45%,rgba(20,18,16,.15) 100%),url(../images/hero-auto-koza.jpg) center/cover}
-.hero .wrap{padding-top:calc(84px + clamp(28px,7vh,80px));padding-bottom:60px}
+.hero{min-height:min(78vh,740px);display:flex;align-items:flex-start;position:relative;padding:0;
+  background:linear-gradient(180deg,rgba(20,18,16,.9) 0,rgba(20,18,16,.45) 150px,rgba(20,18,16,.12) 55%,rgba(20,18,16,.85) 100%),url(../images/hero-auto-koza.jpg) center 65%/cover}
+.hero .wrap{padding-top:calc(84px + clamp(24px,5vh,56px));padding-bottom:64px}
+.hero-ploca{max-width:620px;padding:clamp(24px,3.4vw,42px);border-radius:20px;background:rgba(20,18,16,.8);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px rgba(0,0,0,.4)}
 .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;font-weight:700}
-.hero h1{font-size:clamp(2.6rem,6vw,5rem);max-width:720px;margin:18px 0 22px}
+.hero h1{font-size:clamp(2.2rem,4.6vw,4rem);margin:14px 0 18px}
 .hero h1 em{color:var(--accent)}
-.hero p{max-width:540px;color:#d6cec4;font-size:1.12rem}
+.hero p{color:#ddd5cb;font-size:1.08rem}
+.hero .btns{margin-top:28px}
 .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
 .btn{padding:15px 28px;border-radius:999px;font-weight:700;display:inline-block}
 .btn-a{background:var(--accent);color:#1a1209}
@@ -167,8 +170,10 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
   .menu li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem;opacity:1}
   header.open .menu{display:flex}
   .eyebrow{letter-spacing:.12em;font-size:.72rem}
-  .hero .wrap{padding-top:108px;padding-bottom:150px}
-  .stamp{width:110px;height:110px;right:16px;bottom:24px}.stamp b{font-size:2.3rem}
+  .hero{min-height:0}
+  .hero .wrap{padding-top:104px;padding-bottom:130px}
+  .hero-ploca{border-radius:16px}
+  .stamp{width:96px;height:96px;right:16px;bottom:18px}.stamp b{font-size:2rem}.stamp small{font-size:.65rem}
   .bento{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
   .t-auto,.t-rest,.t-nam{grid-column:1/3;grid-row:auto}
   .t-auto,.t-rest{grid-row:span 2}
