@@ -33,8 +33,9 @@ header.open .burger .i-close{display:block}
 .hero-ploca{max-width:620px;padding:clamp(24px,3.4vw,42px);border-radius:20px;background:rgba(20,18,16,.8);
   -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px rgba(0,0,0,.4)}
 .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;font-weight:700}
-.hero h1{font-size:clamp(2.2rem,4.6vw,4rem);margin:14px 0 18px}
-.hero h1 em{color:var(--accent)}
+/* Naslov u Appleovom fontu (SF Pro na iPhoneu i Macu), na ostalim uređajima sličan font Inter */
+.hero h1{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-weight:700;letter-spacing:-.025em;line-height:1.06;font-size:clamp(2.1rem,4.4vw,3.6rem);margin:14px 0 18px}
 .hero p{color:#ddd5cb;font-size:1.08rem}
 .hero .btns{margin-top:28px}
 .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
