@@ -2,17 +2,19 @@
 
 Jednostavna statička stranica (`index.html`), bez instalacije i alata. Otvori se direktno u pregledniku.
 
-**Izabran je dizajn 4 (foto mozaik)** – on je sada glavna stranica `index.html`, dopunjen menijem za mobitel
-i zaglavljem koje ostaje na vrhu (dugme „Pozovite“ je uvijek vidljivo).
+Stari prijedlozi dizajna su uklonjeni sa stranice da ne budu javno dostupni (ostaju u historiji projekta na GitHubu).
 
 ## Stranice
 | Fajl | Šta je |
 |------|--------|
 | `index.html` | početna: naslov, kategorije, kontakt, materijali, o nama (40 godina) |
 | `auto-sjedista.html`, `volani.html`, `rucice-mjenjaca.html`, `motori.html`, `gliseri-i-brodovi.html`, `ugostiteljski-objekti.html`, `namjestaj.html`, `ljetne-baste.html`, `firme.html` | stranica svake kategorije s galerijom završenih radova – otvara se klikom na sliku kategorije na početnoj |
-| `css/stil.css` | izgled svih stranica |
+| `404.html` | stranica „Stranica nije pronađena“ (prikazuje se kad adresa ne postoji) |
+| `css/stil.css`, `css/fontovi.css` | izgled svih stranica i fontovi |
+| `fonts/` | fontovi spremljeni na stranici (bez učitavanja s Google servera) |
 | `js/radovi.js` | **spisak fotografija završenih radova po kategorijama** |
 | `js/galerija.js`, `js/sajt.js` | galerija s uvećanim prikazom fotografije, meni i zaglavlje |
+| `_headers` | sigurnosne postavke (za Cloudflare Pages i Netlify) |
 
 ## Kako dodati fotografije završenih radova
 1. Fotografiju stavite u folder `images/radovi/` (ime bez razmaka i bez č, ć, š, đ, ž, npr. `golf-kozna-sjedista.jpg`).
@@ -29,20 +31,6 @@ i zaglavljem koje ostaje na vrhu (dugme „Pozovite“ je uvijek vidljivo).
 Dok kategorija nema vaših fotografija, prikazuju se privremeni primjeri (označeni natpisom „Primjer“).
 Čim dodate prvu vašu fotografiju u kategoriju, primjeri iz nje nestaju. Da se primjeri nigdje ne prikazuju,
 u `js/radovi.js` postavite `PRIKAZI_PRIMJERE = false`.
-
-## Prijedlozi dizajna
-U folderu `prijedlozi/` je šest različitih dizajna (svaki ima i sliku ekrana):
-
-| # | Fajl | Stil |
-|---|------|------|
-| 1 | `1-tamni-moderni.html` | crna pozadina, crveni detalji (bez fotografija) |
-| 2 | `2-svijetli-cisti.html` | bijelo i plavo, kartice (bez fotografija) |
-| 3 | `3-zanatski-klasicni.html` | krem, zelena i zlatna, klasična slova (bez fotografija) |
-| 4 | `4-foto-mozaik.html` | tamni, mozaik velikih fotografija za svaku kategoriju |
-| 5 | `5-svijetli-kategorije.html` | svijetli, svaka kategorija u svom redu s fotografijama |
-| 6 | `6-interaktivni.html` | slajdovi u zaglavlju, kartice po kategorijama, dugme za poziv na mobitelu |
-
-Ostali prijedlozi su sačuvani za poređenje.
 
 ## Šta treba popuniti
 U svim `.html` fajlovima potražiti `TODO` i `[Naziv]` i zamijeniti:
@@ -61,9 +49,9 @@ na stock fotografiji je stvarna, prepoznatljiva osoba koja nema veze s radnjom.
 | Fajl | Izvor |
 |------|-------|
 | `hero-auto-koza.jpg` | [pexels.com/photo/luxury-classic-car-interior-at-auto-show-32725848](https://www.pexels.com/photo/luxury-classic-car-interior-at-auto-show-32725848/) |
-| `hero-brod.jpg`, `brod-sjedista.jpg` | [pexels.com/photo/leather-seats-in-the-interior-of-a-yacht-8356420](https://www.pexels.com/photo/leather-seats-in-the-interior-of-a-yacht-8356420/) |
+| `brod-sjedista.jpg` | [pexels.com/photo/leather-seats-in-the-interior-of-a-yacht-8356420](https://www.pexels.com/photo/leather-seats-in-the-interior-of-a-yacht-8356420/) |
 | `hero-restoran.jpg`, `restoran.jpg` | [pexels.com/photo/restaurant-interior-with-white-walls-and-wooden-chairs-and-tables-8753554](https://www.pexels.com/photo/restaurant-interior-with-white-walls-and-wooden-chairs-and-tables-8753554/) |
-| `hero-namjestaj.jpg`, `namjestaj-dnevna.jpg` | [pexels.com/photo/cozy-living-room-with-sofa-and-armchairs-6312357](https://www.pexels.com/photo/cozy-living-room-with-sofa-and-armchairs-6312357/) |
+| `namjestaj-dnevna.jpg` | [pexels.com/photo/cozy-living-room-with-sofa-and-armchairs-6312357](https://www.pexels.com/photo/cozy-living-room-with-sofa-and-armchairs-6312357/) |
 | `auto-sjedista-smeda.jpg` | [pexels.com/photo/classic-car-interior-with-brown-leather-seats-30782277](https://www.pexels.com/photo/classic-car-interior-with-brown-leather-seats-30782277/) |
 | `auto-sjedista-crvena.jpg` | [pexels.com/photo/red-leather-seat-in-car-18318590](https://www.pexels.com/photo/red-leather-seat-in-car-18318590/) |
 | `volan.jpg` | [pexels.com/photo/close-up-shot-of-a-black-steering-wheel-10286370](https://www.pexels.com/photo/close-up-shot-of-a-black-steering-wheel-10286370/) |
@@ -103,6 +91,28 @@ na stock fotografiji je stvarna, prepoznatljiva osoba koja nema veze s radnjom.
 | `primjeri/firma-1.jpg` | [pexels.com/photo/light-room-with-table-and-chairs-near-whiteboard-6180740](https://www.pexels.com/photo/light-room-with-table-and-chairs-near-whiteboard-6180740/) |
 | `primjeri/firma-2.jpg` | [pexels.com/photo/chairs-conference-room-corporate-indoors-236730](https://www.pexels.com/photo/chairs-conference-room-corporate-indoors-236730/) |
 
+## Sigurnost
+- Stranica je statička: nema baze podataka, prijave, formulara ni plaćanja, i ne prikuplja podatke posjetilaca
+  (nema kolačića ni praćenja), pa za sada ne trebaju obavještenje o kolačićima ni politika privatnosti.
+- Stranica učitava samo svoje fajlove – nijedna skripta, font ni slika se ne učitava s drugih servera.
+- `_headers` uključuje sigurnosna zaglavlja (Content-Security-Policy, zabrana prikaza stranice unutar tuđih sajtova,
+  HSTS i ostalo). Cloudflare Pages i Netlify ga čitaju automatski; GitHub Pages ga ne podržava.
+- Na GitHub nalogu, kod registrara domena i na hostingu uključiti dvostepenu prijavu (2FA) i automatsko produženje domena.
+- Na fotografijama radova zamutiti registarske tablice i lica mušterija.
+
+## Fontovi
+DM Sans, DM Serif Display i Inter su pod licencom [SIL Open Font License 1.1](https://openfontlicense.org)
+i smiju se slobodno koristiti i spremiti na stranicu. Naslov na početnoj koristi sistemski Appleov font (SF Pro)
+na iPhoneu i Macu, a Inter na ostalim uređajima.
+
 ## Objavljivanje
-Najlakše besplatno: GitHub Pages (Settings → Pages → Branch: `main`, folder `/`),
-ili Netlify / Cloudflare Pages. Kasnije se može povezati vlastiti domen.
+Grana `main` je verzija za objavu. Preporuka je **Cloudflare Pages** ili **Netlify** (besplatno, automatski HTTPS,
+čitaju `_headers`):
+1. Napraviti nalog i izabrati „povezivanje s GitHubom“, pa projekat `Biznis-auta`.
+2. Grana: `main`; build komanda: prazno; izlazni folder: `/` (korijen projekta).
+3. Povezati vlastiti domen u postavkama projekta (registrar domena dobija upute koje DNS zapise da doda).
+
+Može i GitHub Pages (Settings → Pages → Branch: `main`, folder `/`), ali bez sigurnosnih zaglavlja iz `_headers`.
+
+Nakon što domen bude poznat: u `index.html` upisati punu adresu slike u `og:image`, dodati `sitemap.xml`
+i `robots.txt` i prijaviti stranicu u Google Search Console te napraviti Google Business profil.
