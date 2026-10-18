@@ -16,6 +16,21 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  // Kategorije u meniju: na računaru se lista otvara i klikom (i zatvara klikom pored nje ili tipkom Esc)
+  var kat = header.querySelector('.ima-pod');
+  if (kat) {
+    var katDugme = kat.querySelector('.menu-kat');
+    var katOtvori = function (open) {
+      kat.classList.toggle('open', open);
+      katDugme.setAttribute('aria-expanded', open);
+    };
+    katDugme.addEventListener('click', function () { katOtvori(!kat.classList.contains('open')); });
+    document.addEventListener('click', function (e) { if (!kat.contains(e.target)) katOtvori(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') katOtvori(false); });
+    // Kad fokus tipkovnice izađe iz liste, lista se zatvara
+    kat.addEventListener('focusout', function (e) { if (!kat.contains(e.relatedTarget)) katOtvori(false); });
+  }
+
   // Meni na mobitelu
   var burger = header.querySelector('.burger');
   if (!burger) return;
